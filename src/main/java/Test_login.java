@@ -2,14 +2,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,7 +25,7 @@ public class Test_login {
     private List<String> sl = sj.getSL();//获取物品数量
     private String url = "http://192.168.2.200:8080/GM/";
     private List<String> yh = sj.getYH();//获取用户数据
-
+    private List<String> errors = new ArrayList<String>();
     public Test_login() throws IOException {
     }
 
@@ -75,6 +76,13 @@ public class Test_login {
      * 执行选择发奖方式
      */
     public void setfajiang(){
+        try {
+            Assert.assertTrue(dr.getCurrentUrl().contains("GM/index"));
+        }catch (Error e){
+            String error = "登录成功后跳转网页地址错误："+e.toString();
+            System.out.println(error);
+            errors.add(error);
+        }
         WebDriverWait wait = new WebDriverWait(dr, 20);
         WebElement a1 = wait.until(ExpectedConditions.elementToBeClickable(By.id(ele.get(12))));
         a1.click();
