@@ -6,11 +6,11 @@
            skipped="0"
            time="14.132">
   <properties />
-            <testcase name="test_login" time="14.132" classname="Test_login">
+            <testcase name="test_login" time="14.132" classname="DDT2.Test_Start">
                 <failure type="java.lang.NullPointerException"
                   message="(null)"
               >
-<![CDATA[java.lang.NullPointerException
+                    <![CDATA[java.lang.NullPointerException
   org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
   org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:41)
   org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
@@ -18,8 +18,8 @@
   org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:653)
   org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:646)
   org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
-  Test_login.setfajiang(Test_login.java:87)
-  Test_login.test_login(Test_login.java:53)
+  DDT2.Test_Start.setfajiang(DDT2.Test_Start.java:87)
+  DDT2.Test_Start.test_login(DDT2.Test_Start.java:53)
   sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
   sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
   sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -34,7 +34,7 @@
   java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
   java.lang.Thread.run(Thread.java:745)
 ]]>
-      </failure>
+                </failure>
 
           </testcase>
   

@@ -1,3 +1,6 @@
+package DDT2;
+
+import Data_Management.Get_Excel;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,17 +19,17 @@ import java.util.List;
 /**
  * Created by Administrator on 2017/4/12.
  */
-public class Test_login {
+public class Test_Start {
     private WebDriver dr;
-    private Excel excel = new Excel();//获得元素文件
-    private List<String> ele = excel.setele("yuansu.xlsx");//获得元素
-    private Suju sj = new Suju();//获得数据文件
+    private Get_Excel excel = new Get_Excel("yuansu.xlsx");//获得元素文件
+    private List<String> ele = excel.getele();//获得元素
+    private Get_Excel sj = new Get_Excel("suju.xlsx");//获得数据文件
     private List<String> wp = sj.getWP();//获取物品ID
     private List<String> sl = sj.getSL();//获取物品数量
     private String url = "http://192.168.2.200:8080/GM/";
     private List<String> yh = sj.getYH();//获取用户数据
     private List<String> errors = new ArrayList<String>();
-    public Test_login() throws IOException {
+    public Test_Start() throws IOException {
     }
 
     @BeforeClass

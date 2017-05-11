@@ -1,12 +1,13 @@
-/**
+package Data_Management; /**
  * Created by Administrator on 2017/4/19.
  */
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Demo {
+public class JDBC_Demo {
 
     private String sql = null;
     private JDBC db1 = null;
