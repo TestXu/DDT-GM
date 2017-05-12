@@ -1,5 +1,6 @@
 package Test;
 
+import PageObject.HaoSouPage;
 import org.testng.annotations.Test;
 
 public class HaoSouPageTest {

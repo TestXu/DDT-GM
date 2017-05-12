@@ -1,6 +1,5 @@
 package Data_Management;
 
-import org.dom4j.Attribute;
 import org.dom4j.Element;
 
 import java.util.ArrayList;
@@ -15,7 +14,7 @@ public class Get_Dom4j extends Dom4j {
         super(file);
     }
 
-    public void getele() {
+    private List<String> setele() {
         Iterator<Element> elements;
         Element element = null;
         List<String> ele = new ArrayList<String>();
@@ -25,13 +24,18 @@ public class Get_Dom4j extends Dom4j {
         elements = node.elements("element").iterator();
         while (elements.hasNext()) {
             element = elements.next();
-            Attribute attr = element.attribute("name");
+//            Attribute attr = element.attribute("name");
             Element locator = element.element("locator");
-            Attribute attr1 = locator.attribute("type");
-            System.out.println("用处：" + attr.getText());
-            System.out.println("类型:" + attr1.getText() + "\n" + locator.getText());
-            System.out.println("---------------------------------------");
+//            Attribute attr1 = locator.attribute("type");
+//            System.out.println("用处：" + attr.getText());
+//            System.out.println("类型:" + attr1.getText() + "\n" + locator.getText());
+//            System.out.println("---------------------------------------");
             ele.add(locator.getText());
         }
+        return ele;
+    }
+
+    public List<String> getele() {
+        return this.setele();
     }
 }

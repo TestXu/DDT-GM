@@ -1,5 +1,6 @@
-package Test;
+package ResultPage;
 
+import PageObject.HaoSouPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
