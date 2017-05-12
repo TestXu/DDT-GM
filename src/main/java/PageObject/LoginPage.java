@@ -20,7 +20,8 @@ import java.util.List;
  */
 public class LoginPage {
     private WebDriver driver;
-    private List<String> ele = new Get_Dom4j("LoginEleData").getele();
+    private WebDriverWait wait =new WebDriverWait(driver,20);
+//    private List<String> ele = new Get_Dom4j("LoginEleData").getele();
     public LoginPage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver,this);
@@ -51,12 +52,11 @@ public class LoginPage {
 
     @FindBy(id = "loginBtn-btnEl")
     @CacheLookup
-    private static WebElement loginButten;//用户登录按钮
+    private static WebElement loginButton;//用户登录按钮
     public void openurl(String url){
         driver.get(url);
     }
     public void login(String name,String pwd){
-        WebDriverWait wait =new WebDriverWait(driver,20);
         wait.until(ExpectedConditions.elementToBeClickable(nameInput)).sendKeys(name);
         wait.until(ExpectedConditions.elementToBeClickable(pwdInput)).sendKeys(pwd);
         wait.until(ExpectedConditions.elementToBeClickable(server)).click();
@@ -73,6 +73,6 @@ public class LoginPage {
             e.printStackTrace();
         }
         wait.until(ExpectedConditions.elementToBeClickable(Chinaese)).click();
-        wait.until(ExpectedConditions.elementToBeClickable(loginButten)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(loginButton)).click();
     }
 }
