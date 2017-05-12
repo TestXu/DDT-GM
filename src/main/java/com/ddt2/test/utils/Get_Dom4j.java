@@ -1,4 +1,4 @@
-package Data_Management;
+package com.ddt2.test.utils;
 
 import org.dom4j.Element;
 
@@ -6,9 +6,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-/**
- * Created by Administrator on 2017/5/12.
- */
+
 public class Get_Dom4j extends Dom4j {
     public Get_Dom4j(String file) {
         super(file);

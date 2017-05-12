@@ -1,4 +1,4 @@
-package Data_Management;
+package com.ddt2.test.utils;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -9,9 +9,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-/**
- * Created by Administrator on 2017/5/11.
- */
+
 public class Get_Excel extends Excel {
     public Get_Excel(String file) {
         super(file);
@@ -19,10 +17,9 @@ public class Get_Excel extends Excel {
 
     /**
      * 获得元素
-     *
      * @return 元素列表
      */
-    private List<String> setele() {
+        private List<String> setele() {
         List<String> ele = new ArrayList();
         //获取一个工作表对象
         Sheet sheet = super.workbook.getSheetAt(0);

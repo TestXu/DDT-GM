@@ -1,8 +1,7 @@
 E:\workspace\DDT-GM\src\main\java\Test\HaoSouPageTest.java
-E:\workspace\DDT-GM\src\main\java\Test\ResultPage.java
 E:\workspace\DDT-GM\src\main\java\Data_Management\JDBC.java
+E:\workspace\DDT-GM\src\main\java\PageObject\HaoSouPage.java
 E:\workspace\DDT-GM\src\main\java\Data_Management\Get_Dom4j.java
-E:\workspace\DDT-GM\src\main\java\Test\HaoSouPage.java
 E:\workspace\DDT-GM\src\main\java\Data_Management\Get_Excel.java
 E:\workspace\DDT-GM\src\main\java\PageObject\LoginPage.java
 E:\workspace\DDT-GM\src\main\java\DDT2\Test_Start.java
@@ -10,4 +9,8 @@ E:\workspace\DDT-GM\src\main\java\DDT2\Demo1.java
 E:\workspace\DDT-GM\src\main\java\Data_Management\Dom4j.java
 E:\workspace\DDT-GM\src\main\java\Data_Management\Excel.java
 E:\workspace\DDT-GM\src\main\java\Data_Management\Xml.java
+E:\workspace\DDT-GM\src\main\java\PageObject\RewardPage.java
+E:\workspace\DDT-GM\src\main\java\Test\LoginPageTest.java
+E:\workspace\DDT-GM\src\main\java\ResultPage\ResultPage.java
+E:\workspace\DDT-GM\src\main\java\PageObject\IndexPage.java
 E:\workspace\DDT-GM\src\main\java\Data_Management\JDBC_Demo.java

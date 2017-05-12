@@ -1,4 +1,4 @@
-package Data_Management;
+package com.ddt2.test.utils;
 
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
@@ -10,9 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 
-/**
- * Created by Administrator on 2017/5/12.
- */
+
 public class Dom4j {
     private String file;
     public Document document;

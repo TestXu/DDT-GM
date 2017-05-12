@@ -1,6 +1,6 @@
-package DDT2;
+package com.ddt2.test.testcases;
 
-import Data_Management.Get_Excel;
+import com.ddt2.test.utils.Get_Excel;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,9 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Administrator on 2017/4/12.
- */
+
 public class Test_Start {
     private WebDriver dr;
     private Get_Excel excel = new Get_Excel("yuansu.xlsx");//获得元素文件
