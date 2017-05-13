@@ -15,13 +15,13 @@ public class IndexPage {
     }
 
     @FindBy(id = "functionBtn-btnWrap")
-    protected WebElement INDEXBUTTON;//导航下拉框
+    protected static WebElement INDEXBUTTON;//导航下拉框
     @FindBy(id = "b030000-itemEl")
-    protected WebElement BZDDT;//百战斗斗堂选项
+    protected static WebElement BZDDT;//百战斗斗堂选项
     @FindBy(id = "b030100-btnInnerEl")
-    protected WebElement GAMEBUTTON;//游戏下拉框
+    protected static WebElement GAMEBUTTON;//游戏下拉框
     @FindBy(id = "treeview-1015-record-5231")
-    protected WebElement REAWARDBUTTON;//奖励发放按钮
+    protected static WebElement REAWARDBUTTON;//奖励发放按钮
 
 
 }

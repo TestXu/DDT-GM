@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DDT-GM.iml" filepath="$PROJECT_DIR$/DDT-GM.iml" />
       <module fileurl="file://E:\workspace\DDT-GM\bugclose\bugclose.iml" filepath="E:\workspace\DDT-GM\bugclose\bugclose.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ddt-gm.iml" filepath="$PROJECT_DIR$/ddt-gm.iml" />
     </modules>
   </component>
 </project>

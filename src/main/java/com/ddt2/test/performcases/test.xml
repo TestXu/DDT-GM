@@ -3,7 +3,7 @@
 <suite name="Suite" parallel="classes" thread-count="3">
     <test verbose="2" preserve-order="true" name="TestDebug">
         <classes>
-            <class name="com.ddt2.test.testcases.Test_Start" />
+            <class name="com.ddt2.test.testcases.LoginTest" />
         </classes>
     </test> <!-- Test -->
     <listeners>

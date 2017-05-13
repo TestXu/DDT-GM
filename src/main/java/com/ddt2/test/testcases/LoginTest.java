@@ -16,7 +16,6 @@ public class LoginTest {
     @BeforeClass
     public void setup(){
         driver = new ChromeDriver();
-        driver.manage().window().maximize();
     }
     @AfterClass
     public void teardown(){
@@ -26,7 +25,8 @@ public class LoginTest {
     public void logintest(){
         LoginHelper loginHelper = new LoginHelper(driver);
         System.out.println("----GM工具登录----");
-        loginHelper.openurl("http://192.168.2.200:8080/GM/");
+       // loginHelper.openurl("http://192.168.2.200:8080/GM/");
+        loginHelper.openurl("http://gm.tsixi.cn:8080/GM/");
         loginHelper.login("taoxu","123");
         try {
             Thread.sleep(2000);
