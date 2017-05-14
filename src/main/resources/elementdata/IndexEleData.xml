@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elements>
+    <element index="0" name="导航下拉框">
+        <locator type="id">functionBtn-btnWrap</locator>
+    </element>
+    <element index="1" name="百战斗斗堂选项">
+        <locator type="id">b030000-itemEl</locator>
+    </element>
+    <element index="2" name="游戏下拉框">
+        <locator type="id">b030100-btnInnerEl</locator>
+    </element>
+    <element index="3" name="奖励发放按钮">
+        <locator type="id">treeview-1015-record-5231</locator>
+    </element>
+</elements>

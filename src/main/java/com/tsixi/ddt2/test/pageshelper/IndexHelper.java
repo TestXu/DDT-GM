@@ -1,7 +1,7 @@
 package com.tsixi.ddt2.test.pageshelper;
 
 import com.tsixi.ddt2.test.pages.IndexPage;
-import com.tsixi.ddt2.test.utils.WaitUnits;
+import com.tsixi.ddt2.test.utils.MyWebdriver;
 import org.openqa.selenium.WebDriver;
 
 /**
@@ -10,19 +10,19 @@ import org.openqa.selenium.WebDriver;
  * @Author taoxu
  * @Date 2017/3/13 15:20
  */
-public class IndexHelper extends IndexPage {
+public class IndexHelper implements IndexPage {
     private WebDriver driver;
-    private WaitUnits waitUnits = new WaitUnits(driver);
+    private MyWebdriver dr;
 
     public IndexHelper(WebDriver driver) {
-        super(driver);
         this.driver = driver;
+        dr = new MyWebdriver();
     }
 
     /**
      * 执行发奖
      */
     public void getReaward() {
-        waitUnits.waitClick(REAWARD_BUTTON).click();
+        dr.findElementClick(REAWARD_BUTTON[0], REAWARD_BUTTON[1]);
     }
 }

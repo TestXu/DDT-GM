@@ -19,9 +19,9 @@ import java.util.List;
 
 public class Test_Start {
     private WebDriver dr;
-    private Get_Excel excel = new Get_Excel("yuansu.xlsx");//获得元素文件
+    private Get_Excel excel = new Get_Excel("userdata/yuansu.xlsx");//获得元素文件
     private List<String> ele = excel.getele();//获得元素
-    private Get_Excel sj = new Get_Excel("suju.xlsx");//获得数据文件
+    private Get_Excel sj = new Get_Excel("userdata/suju.xlsx");//获得数据文件
     private List<String> wp = sj.getWP();//获取物品ID
     private List<String> sl = sj.getSL();//获取物品数量
     private String url = "http://192.168.2.200:8080/GM/";

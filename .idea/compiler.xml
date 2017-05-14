@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="ddt-gm" />
         <module name="GM" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="ddt-gm" target="1.7" />
       <module name="GM" target="1.5" />
     </bytecodeTargetLevel>
   </component>

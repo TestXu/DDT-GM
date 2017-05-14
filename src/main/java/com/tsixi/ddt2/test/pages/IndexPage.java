@@ -1,9 +1,8 @@
 package com.tsixi.ddt2.test.pages;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+import com.tsixi.ddt2.test.utils.GetElementXml;
+
+import java.util.List;
 
 
 /**
@@ -12,24 +11,15 @@ import org.openqa.selenium.support.PageFactory;
  * @Author taoxu
  * @Date 2017/3/13 15:03
  */
-public class IndexPage {
-    /**
-     * 获得当前页面元素值
-     *
-     * @param driver driver对象
-     */
-    public IndexPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-    }
+public interface IndexPage {
+    public List<String[]> eles = new GetElementXml("elementdata/IndexEleData.xml").getele();
+    public String[] INDEX_BUTTON=eles.get(0);//导航下拉框
 
-    @FindBy(id = "functionBtn-btnWrap")
-    protected static WebElement INDEX_BUTTON;//导航下拉框
-    @FindBy(id = "b030000-itemEl")
-    protected static WebElement BZDDT;//百战斗斗堂选项
-    @FindBy(id = "b030100-btnInnerEl")
-    protected static WebElement GAME_BUTTON;//游戏下拉框
-    @FindBy(id = "treeview-1015-record-5231")
-    protected static WebElement REAWARD_BUTTON;//奖励发放按钮
+    public String[] BZDDT=eles.get(1);//百战斗斗堂选项
+
+    public String[] GAME_BUTTON=eles.get(2);//游戏下拉框
+
+    public String[] REAWARD_BUTTON=eles.get(3);//奖励发放按钮
 
 
 }

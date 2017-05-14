@@ -1,43 +1,48 @@
 package com.tsixi.ddt2.test.pageshelper;
 
 import com.tsixi.ddt2.test.pages.RewardPage;
-import com.tsixi.ddt2.test.utils.WaitUnits;
+import com.tsixi.ddt2.test.utils.MyWebdriver;
 import org.openqa.selenium.WebDriver;
 
 /**
  * DDT2-GM发奖页面
+ *
  * @Author taoxu
  * @Date 2017/3/13 16:42
  */
-public class RewardHelper extends RewardPage{
+public class RewardHelper implements RewardPage {
     private WebDriver driver;
-    private WaitUnits waitUnits = new WaitUnits(driver);
-    public RewardHelper(WebDriver driver){
-        super(driver);
+    private MyWebdriver dr;
+
+    public RewardHelper(WebDriver driver) {
         this.driver = driver;
+        dr = new MyWebdriver();
 
     }
+
     /**
      * 发奖填写信息
+     *
      * @param role         角色ID
      * @param instructions 详细说明信息
      */
     public void addMessage(String role, String instructions) {
-        waitUnits.waitClick(ZONE_BUTTON).click();
-        waitUnits.waitClick(TEST_SERVER).click();
-        if(role==null){
+        dr.findElementClick(ZONE_BUTTON[0], ZONE_BUTTON[1]);
+        dr.findElementClick(TEST_SERVER[0], TEST_SERVER[1]);
+        if (role == null) {
 
-        }else {
-            waitUnits.waitClick(ROLE_BUTTONN).click();
-            waitUnits.waitClick(AROLE).click();
+        } else {
+            dr.findElementClick(ROLE_BUTTONN[0], ROLE_BUTTONN[1]);
+            dr.findElementClick(AROLE[0], AROLE[1]);
         }
-        waitUnits.waitClick(REASON_BUTTON).click();
-        waitUnits.waitClick(REASON_WEI).click();
-        waitUnits.waitClick(INSTRUCTIONS).sendKeys("");
-        waitUnits.waitClick(INSTRUCTIONS).clear();
-        waitUnits.waitClick(INSTRUCTIONS).sendKeys(instructions);
+        dr.findElementClick(REASON_BUTTON[0], REASON_BUTTON[1]);
+        dr.findElementClick(REASON_WEI[0], REASON_WEI[1]);
+        dr.findElement(INSTRUCTIONS[0], INSTRUCTIONS[1]).sendKeys("");
+        dr.findElementClear(INSTRUCTIONS[0], INSTRUCTIONS[1]);
+        dr.findElement(INSTRUCTIONS[0], INSTRUCTIONS[1]).sendKeys(instructions);
     }
-    public void addProp(){
+
+    public void addProp() {
 
     }
 }

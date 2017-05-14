@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elements>
+    <element index="0" name="账号输入框">
+        <locator type="id">textfield-1009-inputEl</locator>
+    </element>
+    <element index="1" name="密码输入框">
+        <locator type="id">textfield-1010-inputEl</locator>
+    </element>
+    <element index="2" name="服务器选择下拉框">
+        <locator type="id">combo-1011-trigger-picker</locator>
+    </element>
+    <element index="3" name="内网测试GM2">
+        <locator type="css">ul#boundlist-1018-listEl > li[data-recordindex="0"]</locator>
+    </element>
+    <element index="4" name="语言选择下拉框">
+        <locator type="id">combo-1012-trigger-picker</locator>
+    </element>
+    <element index="5" name="简体中文">
+        <locator type="css">ul#boundlist-1020-listEl>li[data-recordindex="0"]</locator>
+    </element>
+    <element index="6" name="保存密码勾选框">
+        <locator type="id">checkbox-1013-inputEl</locator>
+    </element>
+    <element index="7" name="登录按钮">
+        <locator type="id">loginBtn-btnEl</locator>
+    </element>
+</elements>

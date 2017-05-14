@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elements>
+    <element index="0" name="赛区下拉框">
+        <locator type="xpath">/html/body/div[4]/div[2]/div/div/div/div/div[1]/div[3]/div/div/div[1]/div/div/div[1]/input</locator>
+    </element>
+    <element index="1" name="五服测试服">
+        <locator type="xpath">/html/body/div[14]/div/ul/li[text()='5 - test server']</locator>
+    </element>
+    <element index="2" name="角色下拉框">
+        <locator type="xpath">/html/body/div[4]/div[2]/div/div/div/div/div[1]/div[3]/div/div/div[2]/div/div/div[2]</locator>
+    </element>
+    <element index="3" name="在线角色选项">
+        <locator type="xpath">//li[text()='在线角色']</locator>
+    </element>
+    <element index="4" name="发奖原因下拉框">
+        <locator type="xpath">/html/body/div[4]/div[2]/div/div/div/div/div[1]/div[3]/div/div/div[3]/div/div/div[2]</locator>
+    </element>
+    <element index="5" name="系统维护选项">
+        <locator type="xpath">//li[text()='系统维护/更新补偿']</locator>
+    </element>
+    <element index="6" name="详细说明输入框">
+        <locator type="xpath">/html/body/div[4]/div[2]/div/div/div/div/div[1]/div[3]/div/div/div[4]/div/div/div/textarea</locator>
+    </element>
+    <element index="7" name="添加物品按钮">
+        <locator type="id">button-1065-btnIconEl</locator>
+    </element>
+    <element index="8" name="道具搜索框">
+        <locator type="xpath">//input[starts-with(@id, 'textfield-')][1]</locator>
+    </element>
+    <element index="9" name="第一条道具选项">
+        <locator type="xpath">//table[starts-with(@id, 'gridview-')][1]</locator>
+    </element>
+    <element index="10" name="物品数量">
+        <locator type="xpath">//input[starts-with(@id,'numberfield-')]</locator>
+    </element>
+    <element index="11" name="确定按钮">
+        <locator type="xpath">//span[starts-with(@id,'button-')  and text()='确定']</locator>
+    </element>
+    <element index="12" name="执行操作按钮">
+        <locator type="xpath">//span[starts-with(@id,'button-')  and text()='执行']</locator>
+    </element>
+    <element index="13" name="确定执行按钮">
+        <locator type="xpath">//span[starts-with(@id,'button-')  and text()='Yes']</locator>
+    </element>
+</elements>

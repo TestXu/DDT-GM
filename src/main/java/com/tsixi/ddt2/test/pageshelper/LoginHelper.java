@@ -1,7 +1,7 @@
 package com.tsixi.ddt2.test.pageshelper;
 
 import com.tsixi.ddt2.test.pages.LoginPage;
-import com.tsixi.ddt2.test.utils.WaitUnits;
+import com.tsixi.ddt2.test.utils.MyWebdriver;
 import org.openqa.selenium.WebDriver;
 
 /**
@@ -10,13 +10,16 @@ import org.openqa.selenium.WebDriver;
  * @Author taoxu
  * @Date 2017/3/13 11:40
  */
-public class LoginHelper extends LoginPage {
+public class LoginHelper implements LoginPage {
     private WebDriver driver;
-    private WaitUnits waitUnits = new WaitUnits(driver);
+    //    private WaitUnits waitUnits = new WaitUnits(driver,20);
+    private MyWebdriver dr;
 
     public LoginHelper(WebDriver driver) {
-        super(driver);
         this.driver = driver;
+        dr = new MyWebdriver();
+        dr.setWebDriver(driver);
+        dr.setTimeOut(20);
     }
 
     /**
@@ -35,26 +38,21 @@ public class LoginHelper extends LoginPage {
      * @param pwd  密码
      */
     public void login(String name, String pwd) {
-        waitUnits.waitClick(NAME_INPUT).sendKeys("");
-        waitUnits.waitClick(NAME_INPUT).clear();
-        waitUnits.waitClick(NAME_INPUT).sendKeys(name);
-        waitUnits.waitClick(PWD_INPUT).sendKeys("");
-        waitUnits.waitClick(PWD_INPUT).clear();
-        waitUnits.waitClick(PWD_INPUT).sendKeys(pwd);
-        waitUnits.waitClick(SERVER).click();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        waitUnits.waitClick(TEST_SERVER).click();
-        waitUnits.waitClick(LANGUAGE).click();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        waitUnits.waitClick(CHINAESE).click();
-        waitUnits.waitClick(LOGIN_BUTTON).click();
+        dr.findElement(NAME_INPUT[0], NAME_INPUT[1]).sendKeys("");
+        dr.sleep(1000L);
+        dr.findElementClear(NAME_INPUT[0], NAME_INPUT[1]);
+        dr.findElement(NAME_INPUT[0], NAME_INPUT[1]).sendKeys(name);
+        dr.findElement(PWD_INPUT[0], PWD_INPUT[1]).sendKeys("");
+        dr.findElementClear(PWD_INPUT[0], PWD_INPUT[1]);
+        dr.findElement(PWD_INPUT[0], PWD_INPUT[1]).sendKeys(pwd);
+        dr.findElementClick(SERVER[0], SERVER[1]);
+        dr.sleep(1000L);
+        dr.findElementClick(TEST_SERVER[0], TEST_SERVER[1]);
+        dr.findElementClick(LANGUAGE[0], LANGUAGE[1]);
+        dr.sleep(1000L);
+        dr.findElementClick(CHINAESE[0], CHINAESE[1]);
+        dr.findElementClick(LOGIN_BUTTON[0], LOGIN_BUTTON[1]);
     }
+
+
 }

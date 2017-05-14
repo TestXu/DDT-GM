@@ -1,10 +1,8 @@
 package com.tsixi.ddt2.test.pages;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import com.tsixi.ddt2.test.utils.GetElementXml;
+
+import java.util.List;
 
 /**
  * DDT2-GM发奖页面元素
@@ -12,48 +10,35 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * @Author taoxu
  * @Date 2017/3/13 16:23
  */
-public class RewardPage {
-    private WebDriver driver;
-    private WebDriverWait wait;
+public interface RewardPage {
+    public List<String[]> eles = new GetElementXml("elementdata/RewardEleData.xml").getele();
+    public String[] ZONE_BUTTON = eles.get(0);//赛区下拉框
 
-    /**
-     * 获得当前页面元素值
-     *
-     * @param driver driver对象
-     */
-    public RewardPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
-    }
+    public String[] TEST_SERVER = eles.get(1);//五服测试服
 
-    @FindBy(xpath = "/html/body/div[4]/div[2]/div/div/div/div/div[1]/div[3]/div/div/div[1]/div/div/div[1]/input")
-    protected static WebElement ZONE_BUTTON;//赛区下拉框
-    @FindBy(xpath = "/html/body/div[14]/div/ul/li[text()='5 - test server']")
-    protected static WebElement TEST_SERVER;//五服测试服
-    @FindBy(xpath = "/html/body/div[4]/div[2]/div/div/div/div/div[1]/div[3]/div/div/div[2]/div/div/div[2]")
-    protected static WebElement ROLE_BUTTONN;//角色下拉框
-    @FindBy(xpath = "//li[text()='在线角色']")
-    protected static WebElement AROLE;//在线角色选项
-    @FindBy(xpath = "/html/body/div[4]/div[2]/div/div/div/div/div[1]/div[3]/div/div/div[3]/div/div/div[2]")
-    protected static WebElement REASON_BUTTON;//发奖原因下拉框
-    @FindBy(xpath = "//li[text()='系统维护/更新补偿']")
-    protected static WebElement REASON_WEI;//系统维护选项
-    @FindBy(xpath = "/html/body/div[4]/div[2]/div/div/div/div/div[1]/div[3]/div/div/div[4]/div/div/div/textarea")
-    protected static WebElement INSTRUCTIONS;//详细说明输入框
-    @FindBy(id = "button-1065-btnIconEl")
-    protected static WebElement ADDITEMS;//添加物品按钮
-    @FindBy(xpath = "//input[starts-with(@id, 'textfield-')][1]")
-    protected static WebElement PROP;//道具搜索框
-    @FindBy(xpath = "//table[starts-with(@id, 'gridview-')][1]")
-    protected static WebElement FIRST_PROP;//第一条道具选项
-    @FindBy(xpath = "//input[starts-with(@id,'numberfield-')]")
-    protected static WebElement PROP_NUM;//物品数量
-    @FindBy(xpath = "//span[starts-with(@id,'button-')  and text()='确定']")
-    protected static WebElement ACCEPT;//确定按钮
-    @FindBy(xpath = "//span[starts-with(@id,'button-')  and text()='执行']")
-    protected static WebElement PERFORM;//执行操作按钮
-    @FindBy(xpath = "//span[starts-with(@id,'button-')  and text()='Yes']")
-    protected static WebElement ACCEPT_PERFORM;//确定执行按钮
+    public String[] ROLE_BUTTONN = eles.get(2);//角色下拉框
+
+    public String[] AROLE = eles.get(3);//在线角色选项
+
+    public String[] REASON_BUTTON = eles.get(4);//发奖原因下拉框
+
+    public String[] REASON_WEI = eles.get(5);//系统维护选项
+
+    public String[] INSTRUCTIONS = eles.get(6);//详细说明输入框
+
+    public String[] ADDITEMS = eles.get(7);//添加物品按钮
+
+    public String[] PROP = eles.get(8);//道具搜索框
+
+    public String[] FIRST_PROP = eles.get(9);//第一条道具选项
+
+    public String[] PROP_NUM = eles.get(10);//物品数量
+
+    public String[] ACCEPT = eles.get(11);//确定按钮
+
+    public String[] PERFORM = eles.get(12);//执行操作按钮
+
+    public String[] ACCEPT_PERFORM = eles.get(13);//确定执行按钮
 
 
 }

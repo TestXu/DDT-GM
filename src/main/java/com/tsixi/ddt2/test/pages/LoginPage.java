@@ -1,10 +1,8 @@
 package com.tsixi.ddt2.test.pages;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.CacheLookup;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+import com.tsixi.ddt2.test.utils.GetElementXml;
+
+import java.util.List;
 
 /**
  * DDT2-GM登录页面元素
@@ -12,41 +10,22 @@ import org.openqa.selenium.support.PageFactory;
  * @Author taoxu
  * @Date 2017/3/13 11:20
  */
-public class LoginPage {
+public interface LoginPage {
     /**
      * 获得当前页面元素值
-     *
-     * @param driver driver对象
      */
-    public LoginPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-    }
+    public List<String[]> eles = new GetElementXml("elementdata/LoginEleData.xml").getele();
+    public String[] NAME_INPUT = eles.get(0);//账号输入框
 
-    @FindBy(id = "textfield-1009-inputEl")
-    @CacheLookup
-    protected static WebElement NAME_INPUT;//账号输入框
+    public String[] PWD_INPUT = eles.get(1);//密码输入框
 
-    @FindBy(id = "textfield-1010-inputEl")
-    @CacheLookup
-    protected static WebElement PWD_INPUT;//密码输入框
+    public String[] SERVER = eles.get(2);//选择服务器
 
-    @FindBy(id = "combo-1011-trigger-picker")
-    @CacheLookup
-    protected static WebElement SERVER;//选择服务器
+    public String[] TEST_SERVER = eles.get(3);//测试服务器
 
-    @FindBy(css = "ul#boundlist-1018-listEl > li[data-recordindex='0']")
-    @CacheLookup
-    protected static WebElement TEST_SERVER;//测试服务器
+    public String[] LANGUAGE = eles.get(4);//选择语言
 
-    @FindBy(id = "combo-1012-trigger-picker")
-    @CacheLookup
-    protected static WebElement LANGUAGE;//选择语言
+    public String[] CHINAESE = eles.get(5);//简体中文
 
-    @FindBy(css = "ul#boundlist-1020-listEl>li[data-recordindex='0']")
-    @CacheLookup
-    protected static WebElement CHINAESE;//简体中文
-
-    @FindBy(id = "loginBtn-btnEl")
-    @CacheLookup
-    protected static WebElement LOGIN_BUTTON;//用户登录按钮
+    public String[] LOGIN_BUTTON = eles.get(7);//用户登录按钮
 }
