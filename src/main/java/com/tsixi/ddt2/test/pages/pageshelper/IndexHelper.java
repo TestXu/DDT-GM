@@ -1,6 +1,6 @@
-package com.tsixi.ddt2.test.pageshelper;
+package com.tsixi.ddt2.test.pages.pageshelper;
 
-import com.tsixi.ddt2.test.pages.IndexPage;
+import com.tsixi.ddt2.test.pages.pageselement.IndexPage;
 import com.tsixi.ddt2.test.utils.MyWebdriver;
 import org.openqa.selenium.WebDriver;
 

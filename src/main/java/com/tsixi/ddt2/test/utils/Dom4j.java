@@ -16,6 +16,10 @@ public class Dom4j {
     public Document document;
     private InputStream input = null;
 
+    /**
+     * 提供一个传入文件创建document对象的构造器
+     * @param file 文件名
+     */
     public Dom4j(String file) {
         this.file = file;
         ClassLoader classLoader = Dom4j.class.getClassLoader();
@@ -37,6 +41,9 @@ public class Dom4j {
         }
     }
 
+    /**
+     * 关闭文件
+     */
     public void close() {
         try {
             input.close();

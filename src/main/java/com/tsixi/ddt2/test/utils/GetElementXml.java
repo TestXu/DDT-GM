@@ -3,46 +3,44 @@ package com.tsixi.ddt2.test.utils;
 import org.dom4j.Attribute;
 import org.dom4j.Element;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 
 public class GetElementXml extends Dom4j {
     public GetElementXml(String file) {
         super(file);
     }
-    private List<String[]> eles;
+    private Map<String,String[]> eles;
     /**
-     *
-     * @return
+     *提供一个从xml文件获取ele数组的方法
+     * @return Map集合 通过name获取数组values
+     * 数组第一位为类型   第二位为类型值
      */
-    private List<String[]> setele() {
+    private Map<String,String[]> setele() {
         Iterator<Element> elements;
-        Element element = null;
-        eles = new ArrayList<String[]>();
+        Element property = null;
+        eles = new HashMap<String, String[]>();
         //获取根节点元素对象
         Element node = super.document.getRootElement();
         //获得一个element列表迭代器
-        elements = node.elements("element").iterator();
+        elements = node.elements("property").iterator();
         while (elements.hasNext()) {
-            element = elements.next();
+            property = elements.next();
             String[] ele =new String[2];
-//           Attribute attr = element.attribute("name");
-            Element locator = element.element("locator");
-            Attribute attr1 = locator.attribute("type");
-            ele[0] = attr1.getText();
-            ele[1] = locator.getText();
-//            System.out.println("用处：" + attr.getText());
-//            System.out.println("类型:" + attr1.getText() + "\n" + locator.getText());
-//            System.out.println("---------------------------------------");
-            eles.add(ele);
+            ele[0] = property.attributeValue("type");
+            ele[1] = property.attributeValue("value");
+            eles.put(property.attributeValue("name"),ele);
         }
         close();
         return eles;
     }
 
-    public List<String[]> getele() {
+    /**
+     * 提供一个获取element元素集合
+     * @return Map集合 通过name获取数组values
+     * 数组第一位为类型   第二位为类型值
+     */
+    public Map<String,String[]> getele() {
         return this.setele();
     }
 }

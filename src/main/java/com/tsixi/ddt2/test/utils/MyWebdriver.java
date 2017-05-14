@@ -1,6 +1,4 @@
-package com.tsixi.ddt2.test.utils;/**
- * Created by taoxu on 2017/5/14.
- */
+package com.tsixi.ddt2.test.utils;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -16,22 +14,181 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author taoxu
- * @create 2017-05-14-2:31
  **/
 public class MyWebdriver {
     private WebDriver driver;
     private String value = "";
     private boolean flag = true;
     private WebDriverWait wait;
-    public MyWebdriver(){
+    private WebElement element;
+
+    public MyWebdriver() {
 
     }
+
     public void setWebDriver(WebDriver driver) {
         this.driver = driver;
     }
 
     public WebDriver getWebDriver() {
         return this.driver;
+    }
+    /**
+     * 查找元素
+     *
+     * @param by      传入一个类型
+     * @param byValue 传入一个类型值
+     * @return 返回一个WebElement对象
+     */
+    public WebElement findElement(String by, String byValue) {
+        try {
+            switch (by) {
+                case "id":
+                    element = driver.findElement(By.id(byValue));
+                    break;
+                case "name":
+                    element = driver.findElement(By.name(byValue));
+                    break;
+                case "class":
+                    element = driver.findElement(By.className(byValue));
+                    break;
+                case "tag":
+                    element = driver.findElement(By.tagName(byValue));
+                case "link":
+                    element = driver.findElement(By.linkText(byValue));
+                    break;
+                case "partiallinktext":
+                    element = driver.findElement(By.partialLinkText(byValue));
+                case "css":
+                    element = driver.findElement(By.cssSelector(byValue));
+                    break;
+                case "xpath":
+                    element = driver.findElement(By.xpath(byValue));
+                    break;
+                default:
+                    throw new RuntimeException("输入的定位类型未在程序中定义，类型为：" + byValue);
+            }
+        }catch (Exception e){
+            System.out.println("没有找到元素："+byValue);
+        }
+        return element;
+    }
+
+    /**
+     * 查找元素并点击
+     *
+     * @param by      传入一个类型
+     * @param byValue 传入一个类型值
+     */
+    public void findElementClick(String by, String byValue) {
+        try {
+            switch (by) {
+                case "id":
+                    driver.findElement(By.id(byValue)).click();
+                    break;
+                case "name":
+                    driver.findElement(By.name(byValue)).click();
+                    break;
+                case "class":
+                    driver.findElement(By.className(byValue)).click();
+                    break;
+                case "tag":
+                    driver.findElement(By.tagName(byValue)).click();
+                case "link":
+                    driver.findElement(By.linkText(byValue)).click();
+                    break;
+                case "partiallinktext":
+                    driver.findElement(By.partialLinkText(byValue)).click();
+                case "css":
+                    driver.findElement(By.cssSelector(byValue)).click();
+                    break;
+                case "xpath":
+                    driver.findElement(By.xpath(byValue)).click();
+                    break;
+                default:
+                    throw new RuntimeException("输入的定位类型未在程序中定义，类型为：" + byValue);
+            }
+        } catch (Exception e) {
+            System.out.println("*****没有找到元素为:"+byValue+"    的元素或者该元素无法点击****");
+        }
+    }
+
+    /**
+     * 查找元素并清除
+     *
+     * @param by      传入一个类型
+     * @param byValue 传入一个类型值
+     */
+    public void findElementClear(String by, String byValue) {
+        try {
+            switch (by) {
+                case "id":
+                    driver.findElement(By.id(byValue)).clear();
+                    break;
+                case "name":
+                    driver.findElement(By.name(byValue)).clear();
+                    break;
+                case "class":
+                    driver.findElement(By.className(byValue)).clear();
+                    break;
+                case "tag":
+                    driver.findElement(By.tagName(byValue)).clear();
+                case "link":
+                    driver.findElement(By.linkText(byValue)).clear();
+                    break;
+                case "partiallinktext":
+                    driver.findElement(By.partialLinkText(byValue)).clear();
+                case "css":
+                    driver.findElement(By.cssSelector(byValue)).clear();
+                    break;
+                case "xpath":
+                    driver.findElement(By.xpath(byValue)).clear();
+                    break;
+                default:
+                    throw new RuntimeException("输入的定位类型未在程序中定义，类型为：" + byValue);
+            }
+        } catch (Exception e) {
+            System.out.println("*****没有找到元素为:"+byValue+"    的元素或者该元素没有输入值****");
+        }
+    }
+    /**
+     * 查找元素并输入值
+     *
+     * @param by      传入一个类型
+     * @param byValue 传入一个类型值
+     * @param key 填写要输入的值
+     */
+    public void findElementSendKeys(String by, String byValue,String key) {
+        try {
+            switch (by) {
+                case "id":
+                    driver.findElement(By.id(byValue)).sendKeys(key);
+                    break;
+                case "name":
+                    driver.findElement(By.name(byValue)).sendKeys(key);
+                    break;
+                case "class":
+                    driver.findElement(By.className(byValue)).sendKeys(key);
+                    break;
+                case "tag":
+                    driver.findElement(By.tagName(byValue)).sendKeys(key);
+                case "link":
+                    driver.findElement(By.linkText(byValue)).sendKeys(key);
+                    break;
+                case "partiallinktext":
+                    driver.findElement(By.partialLinkText(byValue)).sendKeys(key);
+                case "css":
+                    driver.findElement(By.cssSelector(byValue)).sendKeys(key);
+                    break;
+                case "xpath":
+                    driver.findElement(By.xpath(byValue)).sendKeys(key);
+                    break;
+                default:
+                    throw new RuntimeException("输入的定位类型未在程序中定义，类型为：" + byValue);
+            }
+        } catch (Exception e) {
+            System.out.println("*****没有找到元素为:"+byValue+"    的元素或者该元素无法输入****");
+        }
     }
 
     /**
@@ -760,104 +917,6 @@ public class MyWebdriver {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return false;
-        }
-    }
-    /**
-     * 查找元素
-     * @param by 传入一个类型
-     * @param byValue 传入一个类型值
-     * @return 返回一个WebElement对象
-     */
-    public WebElement findElement(String by, String byValue){
-        switch (by) {
-            case "id":
-                return driver.findElement(By.id(byValue));
-            case "name":
-                return driver.findElement(By.name(byValue));
-            case "class":
-                return driver.findElement(By.className(byValue));
-            case "tag":
-                return driver.findElement(By.className(byValue));
-            case "link":
-                return driver.findElement(By.linkText(byValue));
-            case "partiallinktext":
-                return driver.findElement(By.partialLinkText(byValue));
-            case "css":
-                return driver.findElement(By.cssSelector(byValue));
-            case "xpath":
-                return driver.findElement(By.xpath(byValue));
-            default:
-                throw new RuntimeException("输入的定位类型未在程序中定义，类型为：" + byValue);
-        }
-    }
-    /**
-     * 查找元素并点击
-     * @param by 传入一个类型
-     * @param byValue 传入一个类型值
-     */
-    public void findElementClick(String by, String byValue){
-        switch (by) {
-            case "id":
-                 driver.findElement(By.id(byValue)).click();
-                break;
-            case "name":
-                 driver.findElement(By.name(byValue)).click();
-                break;
-            case "class":
-                 driver.findElement(By.className(byValue)).click();
-                break;
-            case "tag":
-                 driver.findElement(By.className(byValue)).click();
-                break;
-            case "link":
-                 driver.findElement(By.linkText(byValue)).click();
-                break;
-            case "partiallinktext":
-                 driver.findElement(By.partialLinkText(byValue)).click();
-                break;
-            case "css":
-                 driver.findElement(By.cssSelector(byValue)).click();
-                break;
-            case "xpath":
-                 driver.findElement(By.xpath(byValue)).click();
-                break;
-            default:
-                throw new RuntimeException("输入的定位类型未在程序中定义，类型为：" + byValue);
-        }
-    }
-    /**
-     * 查找元素并清除
-     * @param by 传入一个类型
-     * @param byValue 传入一个类型值
-     */
-    public void findElementClear(String by, String byValue){
-        switch (by) {
-            case "id":
-                driver.findElement(By.id(byValue)).clear();
-                break;
-            case "name":
-                driver.findElement(By.name(byValue)).clear();
-                break;
-            case "class":
-                driver.findElement(By.className(byValue)).clear();
-                break;
-            case "tag":
-                driver.findElement(By.className(byValue)).clear();
-                break;
-            case "link":
-                driver.findElement(By.linkText(byValue)).clear();
-                break;
-            case "partiallinktext":
-                driver.findElement(By.partialLinkText(byValue)).clear();
-                break;
-            case "css":
-                driver.findElement(By.cssSelector(byValue)).clear();
-                break;
-            case "xpath":
-                driver.findElement(By.xpath(byValue)).clear();
-                break;
-            default:
-                throw new RuntimeException("输入的定位类型未在程序中定义，类型为：" + byValue);
         }
     }
 

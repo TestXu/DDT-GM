@@ -1,6 +1,6 @@
-package com.tsixi.ddt2.test.pageshelper;
+package com.tsixi.ddt2.test.pages.pageshelper;
 
-import com.tsixi.ddt2.test.pages.RewardPage;
+import com.tsixi.ddt2.test.pages.pageselement.RewardPage;
 import com.tsixi.ddt2.test.utils.MyWebdriver;
 import org.openqa.selenium.WebDriver;
 
@@ -10,14 +10,14 @@ import org.openqa.selenium.WebDriver;
  * @Author taoxu
  * @Date 2017/3/13 16:42
  */
-public class RewardHelper implements RewardPage {
+public class RewardHelper extends IndexHelper implements RewardPage {
     private WebDriver driver;
     private MyWebdriver dr;
 
     public RewardHelper(WebDriver driver) {
+        super(driver);
         this.driver = driver;
         dr = new MyWebdriver();
-
     }
 
     /**

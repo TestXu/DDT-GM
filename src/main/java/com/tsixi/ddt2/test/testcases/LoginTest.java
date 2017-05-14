@@ -1,14 +1,12 @@
 package com.tsixi.ddt2.test.testcases;
 
-import com.tsixi.ddt2.test.pageshelper.LoginHelper;
+import com.tsixi.ddt2.test.pages.pageshelper.LoginHelper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import java.util.concurrent.TimeUnit;
 
 /**
  * 登录页面测试用例
@@ -45,7 +43,7 @@ public class LoginTest {
             Assert.assertTrue(driver.getCurrentUrl().contains("index"));
             System.out.println("登录测试通过");
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("登录测试异常，没有跳转指定页面");
         }
     }
 }

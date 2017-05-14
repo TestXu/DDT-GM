@@ -1,6 +1,6 @@
-package com.tsixi.ddt2.test.pageshelper;
+package com.tsixi.ddt2.test.pages.pageshelper;
 
-import com.tsixi.ddt2.test.pages.LoginPage;
+import com.tsixi.ddt2.test.pages.pageselement.LoginPage;
 import com.tsixi.ddt2.test.utils.MyWebdriver;
 import org.openqa.selenium.WebDriver;
 
@@ -38,17 +38,17 @@ public class LoginHelper implements LoginPage {
      * @param pwd  密码
      */
     public void login(String name, String pwd) {
-        dr.findElement(NAME_INPUT[0], NAME_INPUT[1]).sendKeys("");
+        dr.findElementSendKeys(NAME_INPUT[0], NAME_INPUT[1],"");
         dr.sleep(1000L);
         dr.findElementClear(NAME_INPUT[0], NAME_INPUT[1]);
-        dr.findElement(NAME_INPUT[0], NAME_INPUT[1]).sendKeys(name);
-        dr.findElement(PWD_INPUT[0], PWD_INPUT[1]).sendKeys("");
+        dr.findElementSendKeys(NAME_INPUT[0], NAME_INPUT[1],name);
+        dr.findElementSendKeys(PWD_INPUT[0], PWD_INPUT[1],"");
         dr.findElementClear(PWD_INPUT[0], PWD_INPUT[1]);
-        dr.findElement(PWD_INPUT[0], PWD_INPUT[1]).sendKeys(pwd);
+        dr.findElementSendKeys(PWD_INPUT[0], PWD_INPUT[1],pwd);
         dr.findElementClick(SERVER[0], SERVER[1]);
         dr.sleep(1000L);
         dr.findElementClick(TEST_SERVER[0], TEST_SERVER[1]);
-        dr.findElementClick(LANGUAGE[0], LANGUAGE[1]);
+        dr.findElementClick(LANGUAGE_BUTTON[0], LANGUAGE_BUTTON[1]);
         dr.sleep(1000L);
         dr.findElementClick(CHINAESE[0], CHINAESE[1]);
         dr.findElementClick(LOGIN_BUTTON[0], LOGIN_BUTTON[1]);
