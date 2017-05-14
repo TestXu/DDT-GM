@@ -16,11 +16,12 @@ import java.io.IOException;
 public class Xml {
     /**
      * 使用DOM的准备工作：
-     1、创建DocumentBuilderFactory对象（newInstance方法）
-
-     2、创建DocumentBuilder对象（newDocumentBuilder方法）
-
-     3、DocumentBuilder对象的parse（）方法
+     * 1、创建DocumentBuilderFactory对象（newInstance方法）
+     * <p>
+     * 2、创建DocumentBuilder对象（newDocumentBuilder方法）
+     * <p>
+     * 3、DocumentBuilder对象的parse（）方法
+     *
      * @param args
      * @throws ParserConfigurationException
      * @throws IOException
@@ -29,7 +30,7 @@ public class Xml {
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
         File file = new File("src/test.xml");
         //创建DocumentBuilderFactory对象
-        DocumentBuilderFactory dbf =DocumentBuilderFactory.newInstance();
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         //创建DocumentBuilder对象
         DocumentBuilder db = dbf.newDocumentBuilder();
         //通过DocumentBuilder对象的parse方法返回一个Document对象

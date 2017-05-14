@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
  * @Author taoxu
  * @Date 2017/3/13 16:42
  */
-public class RewardHelper extends IndexHelper implements RewardPage {
+public class RewardHelper extends IndexHelper {
     private WebDriver driver;
     private MyWebdriver dr;
 
@@ -27,19 +27,19 @@ public class RewardHelper extends IndexHelper implements RewardPage {
      * @param instructions 详细说明信息
      */
     public void addMessage(String role, String instructions) {
-        dr.findElementClick(ZONE_BUTTON[0], ZONE_BUTTON[1]);
-        dr.findElementClick(TEST_SERVER[0], TEST_SERVER[1]);
+        dr.findElementClick(RewardPage.ZONE_BUTTON[0], RewardPage.ZONE_BUTTON[1]);
+        dr.findElementClick(RewardPage.TEST_SERVER[0], RewardPage.TEST_SERVER[1]);
         if (role == null) {
 
         } else {
-            dr.findElementClick(ROLE_BUTTONN[0], ROLE_BUTTONN[1]);
-            dr.findElementClick(AROLE[0], AROLE[1]);
+            dr.findElementClick(RewardPage.ROLE_BUTTONN[0], RewardPage.ROLE_BUTTONN[1]);
+            dr.findElementClick(RewardPage.AROLE[0], RewardPage.AROLE[1]);
         }
-        dr.findElementClick(REASON_BUTTON[0], REASON_BUTTON[1]);
-        dr.findElementClick(REASON_WEI[0], REASON_WEI[1]);
-        dr.findElement(INSTRUCTIONS[0], INSTRUCTIONS[1]).sendKeys("");
-        dr.findElementClear(INSTRUCTIONS[0], INSTRUCTIONS[1]);
-        dr.findElement(INSTRUCTIONS[0], INSTRUCTIONS[1]).sendKeys(instructions);
+        dr.findElementClick(RewardPage.REASON_BUTTON[0], RewardPage.REASON_BUTTON[1]);
+        dr.findElementClick(RewardPage.REASON_WEI[0], RewardPage.REASON_WEI[1]);
+        dr.findElement(RewardPage.INSTRUCTIONS[0], RewardPage.INSTRUCTIONS[1]).sendKeys("");
+        dr.findElementClear(RewardPage.INSTRUCTIONS[0], RewardPage.INSTRUCTIONS[1]);
+        dr.findElementSendKeys(RewardPage.INSTRUCTIONS[0], RewardPage.INSTRUCTIONS[1], instructions);
     }
 
     public void addProp() {

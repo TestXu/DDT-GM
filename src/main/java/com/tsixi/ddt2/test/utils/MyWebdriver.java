@@ -33,6 +33,7 @@ public class MyWebdriver {
     public WebDriver getWebDriver() {
         return this.driver;
     }
+
     /**
      * 查找元素
      *
@@ -68,8 +69,8 @@ public class MyWebdriver {
                 default:
                     throw new RuntimeException("输入的定位类型未在程序中定义，类型为：" + byValue);
             }
-        }catch (Exception e){
-            System.out.println("没有找到元素："+byValue);
+        } catch (Exception e) {
+            System.out.println("没有找到元素：" + byValue);
         }
         return element;
     }
@@ -109,7 +110,7 @@ public class MyWebdriver {
                     throw new RuntimeException("输入的定位类型未在程序中定义，类型为：" + byValue);
             }
         } catch (Exception e) {
-            System.out.println("*****没有找到元素为:"+byValue+"    的元素或者该元素无法点击****");
+            System.out.println("*****没有找到元素为:" + byValue + "    的元素或者该元素无法点击****");
         }
     }
 
@@ -148,17 +149,18 @@ public class MyWebdriver {
                     throw new RuntimeException("输入的定位类型未在程序中定义，类型为：" + byValue);
             }
         } catch (Exception e) {
-            System.out.println("*****没有找到元素为:"+byValue+"    的元素或者该元素没有输入值****");
+            System.out.println("*****没有找到元素为:" + byValue + "    的元素或者该元素没有输入值****");
         }
     }
+
     /**
      * 查找元素并输入值
      *
      * @param by      传入一个类型
      * @param byValue 传入一个类型值
-     * @param key 填写要输入的值
+     * @param key     填写要输入的值
      */
-    public void findElementSendKeys(String by, String byValue,String key) {
+    public void findElementSendKeys(String by, String byValue, String key) {
         try {
             switch (by) {
                 case "id":
@@ -187,7 +189,7 @@ public class MyWebdriver {
                     throw new RuntimeException("输入的定位类型未在程序中定义，类型为：" + byValue);
             }
         } catch (Exception e) {
-            System.out.println("*****没有找到元素为:"+byValue+"    的元素或者该元素无法输入****");
+            System.out.println("*****没有找到元素为:" + byValue + "    的元素或者该元素无法输入****");
         }
     }
 

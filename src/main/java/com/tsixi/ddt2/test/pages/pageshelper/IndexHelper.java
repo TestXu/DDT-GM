@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
  * @Author taoxu
  * @Date 2017/3/13 15:20
  */
-public class IndexHelper implements IndexPage {
+public class IndexHelper {
     private WebDriver driver;
     private MyWebdriver dr;
 
@@ -23,6 +23,6 @@ public class IndexHelper implements IndexPage {
      * 执行发奖
      */
     public void getReaward() {
-        dr.findElementClick(REAWARD_BUTTON[0], REAWARD_BUTTON[1]);
+        dr.findElementClick(IndexPage.REAWARD_BUTTON[0], IndexPage.REAWARD_BUTTON[1]);
     }
 }

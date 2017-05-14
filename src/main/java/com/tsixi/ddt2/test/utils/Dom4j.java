@@ -18,6 +18,7 @@ public class Dom4j {
 
     /**
      * 提供一个传入文件创建document对象的构造器
+     *
      * @param file 文件名
      */
     public Dom4j(String file) {

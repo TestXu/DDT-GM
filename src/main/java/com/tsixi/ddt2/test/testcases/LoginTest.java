@@ -1,9 +1,10 @@
 package com.tsixi.ddt2.test.testcases;
 
 import com.tsixi.ddt2.test.pages.pageshelper.LoginHelper;
+import com.tsixi.ddt2.test.utils.Assertion;
+import com.tsixi.ddt2.test.utils.MyWebdriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -14,16 +15,22 @@ import org.testng.annotations.Test;
  * @Author taoxu
  * @Date 2017/3/13 17:23
  */
+//@Listeners(AssertionListener.class)
 public class LoginTest {
     private WebDriver driver;
+    private MyWebdriver dr;
 
     @BeforeClass
     public void setup() {
         driver = new ChromeDriver();
+        dr = new MyWebdriver();
     }
 
     @AfterClass
     public void teardown() {
+        for (Error error : Assertion.errors) {
+            System.out.println(error);
+        }
         driver.quit();
     }
 
@@ -39,11 +46,6 @@ public class LoginTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        try {
-            Assert.assertTrue(driver.getCurrentUrl().contains("index"));
-            System.out.println("登录测试通过");
-        } catch (Exception e) {
-            System.out.println("登录测试异常，没有跳转指定页面");
-        }
+        Assertion.verifyEquals(true, driver.getCurrentUrl().contains("index"), "是否跳转成功指定地址：");
     }
 }

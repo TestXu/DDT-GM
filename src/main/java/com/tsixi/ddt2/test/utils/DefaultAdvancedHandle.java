@@ -1,8 +1,11 @@
 package com.tsixi.ddt2.test.utils;
 
-import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.Toolkit;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
@@ -11,26 +14,17 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * @author taoxu
- * 处理页面的高级操作
- * 总有适合自己的默认方法,下面等待时间我设置默认方法.为了满足开闭原则,我那天也懒得改,还有很多比默认方法强大同类型方法
+ *         处理页面的高级操作
+ *         总有适合自己的默认方法,下面等待时间我设置默认方法.为了满足开闭原则,我那天也懒得改,还有很多比默认方法强大同类型方法
  */
 public class DefaultAdvancedHandle implements AdvanceHandle {
 
 
-
-    private WebDriver driver ;
-    private static String  preWindowString;
-    private static String imagePath=(new File("").getAbsolutePath()).toString();
+    private WebDriver driver;
+    private static String preWindowString;
+    private static String imagePath = (new File("").getAbsolutePath()).toString();
 
     public DefaultAdvancedHandle(WebDriver driver) {
         this.driver = driver;
@@ -75,18 +69,17 @@ public class DefaultAdvancedHandle implements AdvanceHandle {
      * @see pers.xeon.automate.auxt.AdvanceHandle#waitElementByRefresh(org.openqa.selenium.By, int, int)
      */
     @Override
-    public  boolean waitElementByRefresh(By locator,int time,int k){
+    public boolean waitElementByRefresh(By locator, int time, int k) {
         int i = 0;
-        while(waitElementByWait(locator,time)){
+        while (waitElementByWait(locator, time)) {
             driver.navigate().refresh();
             i++;
-            if(i == k){
+            if (i == k) {
                 return false;
             }
         }
         return true;
     }
-
 
 
     /*
@@ -99,10 +92,9 @@ public class DefaultAdvancedHandle implements AdvanceHandle {
      * @see pers.xeon.automate.auxt.AdvanceHandle#waitElementByRefresh(org.openqa.selenium.By)
      */
     @Override
-    public  boolean waitElementByRefresh(By locator){
-        return waitElementByRefresh(locator,5,2);
+    public boolean waitElementByRefresh(By locator) {
+        return waitElementByRefresh(locator, 5, 2);
     }
-
 
 
     /*
@@ -113,13 +105,13 @@ public class DefaultAdvancedHandle implements AdvanceHandle {
      * @see pers.xeon.automate.auxt.AdvanceHandle#waitElementByWait(org.openqa.selenium.By, int, boolean)
      */
     @Override
-    public  boolean waitElementByWait(By locator,int time,boolean b){
+    public boolean waitElementByWait(By locator, int time, boolean b) {
 
         long start = System.currentTimeMillis();
 
-        while(!isElementExsit(locator)){
-            if(b){
-                if(System.currentTimeMillis() >= (start +time*1000)){
+        while (!isElementExsit(locator)) {
+            if (b) {
+                if (System.currentTimeMillis() >= (start + time * 1000)) {
                     break;
                 }
             }
@@ -135,8 +127,8 @@ public class DefaultAdvancedHandle implements AdvanceHandle {
      * @see pers.xeon.automate.auxt.AdvanceHandle#waitElementByWait(org.openqa.selenium.By)
      */
     @Override
-    public  boolean waitElementByWait(By locator){
-        return waitElementByWait(locator,0,false);
+    public boolean waitElementByWait(By locator) {
+        return waitElementByWait(locator, 0, false);
     }
 
     /*
@@ -148,8 +140,8 @@ public class DefaultAdvancedHandle implements AdvanceHandle {
      * @see pers.xeon.automate.auxt.AdvanceHandle#waitElementByWait(org.openqa.selenium.By, int)
      */
     @Override
-    public  boolean waitElementByWait(By locator,int time){
-        return waitElementByWait(locator,time,true);
+    public boolean waitElementByWait(By locator, int time) {
+        return waitElementByWait(locator, time, true);
     }
 
     /*
@@ -159,11 +151,11 @@ public class DefaultAdvancedHandle implements AdvanceHandle {
      * @see pers.xeon.automate.auxt.AdvanceHandle#isElementExsit(org.openqa.selenium.By)
      */
     @Override
-    public  boolean isElementExsit(By locator) {
+    public boolean isElementExsit(By locator) {
         boolean flag = false;
         try {
-            WebElement element=driver.findElement(locator);
-            flag= null != element;
+            WebElement element = driver.findElement(locator);
+            flag = null != element;
         } catch (NoSuchElementException e) {
             return flag;
         }
@@ -178,13 +170,14 @@ public class DefaultAdvancedHandle implements AdvanceHandle {
      * @see pers.xeon.automate.auxt.AdvanceHandle#waitElement(org.openqa.selenium.By, int)
      */
     @Override
-    public  WebElement waitElement(final By by, int time){
-        WebDriverWait wait = new WebDriverWait(driver,time);
-        wait.until(new ExpectedCondition<WebElement>(){
+    public WebElement waitElement(final By by, int time) {
+        WebDriverWait wait = new WebDriverWait(driver, time);
+        wait.until(new ExpectedCondition<WebElement>() {
             @Override
             public WebElement apply(WebDriver d) {
                 return d.findElement(by);
-            }});
+            }
+        });
         return null;
     }
 
@@ -197,8 +190,8 @@ public class DefaultAdvancedHandle implements AdvanceHandle {
      * @see pers.xeon.automate.auxt.AdvanceHandle#waitElement(org.openqa.selenium.By)
      */
     @Override
-    public  WebElement waitElement(By by){
-        return waitElement(by,10);
+    public WebElement waitElement(By by) {
+        return waitElement(by, 10);
     }
 
     /*
@@ -208,7 +201,7 @@ public class DefaultAdvancedHandle implements AdvanceHandle {
      * @see pers.xeon.automate.auxt.AdvanceHandle#waitElementByThread(int)
      */
     @Override
-    public  void waitElementByThread(int ms) {
+    public void waitElementByThread(int ms) {
         try {
             Thread.sleep(ms);
         } catch (InterruptedException e) {
@@ -225,7 +218,7 @@ public class DefaultAdvancedHandle implements AdvanceHandle {
      * @see pers.xeon.automate.auxt.AdvanceHandle#waitElementByInvisible(int)
      */
     @Override
-    public  void waitElementByInvisible(int second) {
+    public void waitElementByInvisible(int second) {
         driver.manage().timeouts().implicitlyWait(second, TimeUnit.SECONDS);
     }
 
@@ -238,7 +231,7 @@ public class DefaultAdvancedHandle implements AdvanceHandle {
      * @see pers.xeon.automate.auxt.AdvanceHandle#selectValue(java.lang.String, java.lang.String)
      */
     @Override
-    public void selectValue(String estr,String str){
+    public void selectValue(String estr, String str) {
         Select select = new Select(driver.findElement(By.id(estr)));
         select.selectByValue(str);
     }
@@ -252,7 +245,7 @@ public class DefaultAdvancedHandle implements AdvanceHandle {
      * @see pers.xeon.automate.auxt.AdvanceHandle#select(java.lang.String, java.lang.String)
      */
     @Override
-    public void select(String estr,String str){
+    public void select(String estr, String str) {
         Select select = new Select(driver.findElement(By.id(estr)));
         select.selectByVisibleText(str);
     }
@@ -265,7 +258,7 @@ public class DefaultAdvancedHandle implements AdvanceHandle {
      * @see pers.xeon.automate.auxt.AdvanceHandle#select(java.lang.String, int)
      */
     @Override
-    public void select(String estr,int index){
+    public void select(String estr, int index) {
         Select select = new Select(driver.findElement(By.id(estr)));
         select.selectByIndex(index);
     }
@@ -289,7 +282,7 @@ public class DefaultAdvancedHandle implements AdvanceHandle {
      * @see pers.xeon.automate.auxt.AdvanceHandle#alertAccept()
      */
     @Override
-    public void alertAccept(){
+    public void alertAccept() {
         Alert alert = driver.switchTo().alert();
         alert.accept();
     }
@@ -301,7 +294,7 @@ public class DefaultAdvancedHandle implements AdvanceHandle {
      * @see pers.xeon.automate.auxt.AdvanceHandle#alertDismiss()
      */
     @Override
-    public void alertDismiss(){
+    public void alertDismiss() {
         Alert alert = driver.switchTo().alert();
         alert.dismiss();
     }
@@ -313,7 +306,7 @@ public class DefaultAdvancedHandle implements AdvanceHandle {
      * @see pers.xeon.automate.auxt.AdvanceHandle#alertGetText()
      */
     @Override
-    public void alertGetText(){
+    public void alertGetText() {
         Alert alert = driver.switchTo().alert();
         alert.getText();
     }
@@ -326,9 +319,9 @@ public class DefaultAdvancedHandle implements AdvanceHandle {
      * @see pers.xeon.automate.auxt.AdvanceHandle#UploadBySendKeys(java.lang.String, java.lang.String)
      */
     @Override
-    public void UploadBySendKeys(String estr,String strPath){
-        WebElement adFileUpload =driver.findElement(By.id(estr));
-        strPath=imagePath+"\\"+strPath;
+    public void UploadBySendKeys(String estr, String strPath) {
+        WebElement adFileUpload = driver.findElement(By.id(estr));
+        strPath = imagePath + "\\" + strPath;
         adFileUpload.sendKeys(strPath);
     }
 
@@ -342,7 +335,7 @@ public class DefaultAdvancedHandle implements AdvanceHandle {
      * @see pers.xeon.automate.auxt.AdvanceHandle#upload(java.lang.String, java.lang.String)
      */
     @Override
-    public void upload(String estr,String strPath){
+    public void upload(String estr, String strPath) {
         driver.findElement(By.id(estr)).click();
         try {
             upload(strPath);
@@ -358,7 +351,7 @@ public class DefaultAdvancedHandle implements AdvanceHandle {
     /*
      * 得到系统剪贴板
      */
-    private  void copy(String text) {
+    private void copy(String text) {
         //拿到当前系统剪切板,首先拿到工具箱,然后得到系统剪切板
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         //选中文本
@@ -370,7 +363,7 @@ public class DefaultAdvancedHandle implements AdvanceHandle {
     /*
      * 这个方法是复制指定字符串的文本到剪切板 调用keyPressWithCtrl实现ctrl + v,然后enter操作
      */
-    private  void keyPressString(Robot r, String str) throws InterruptedException {
+    private void keyPressString(Robot r, String str) throws InterruptedException {
         copy(str);
         keyPressWithCtrl(r);// 粘贴
     }
@@ -391,7 +384,7 @@ public class DefaultAdvancedHandle implements AdvanceHandle {
     /*
      * 对付上传按钮方法
      */
-    private  void upload(String image) throws AWTException, InterruptedException {
+    private void upload(String image) throws AWTException, InterruptedException {
         Robot robot = new Robot();
         keyPressString(robot, image);
     }
