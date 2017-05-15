@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 
-public class GetElementXml extends Dom4j {
+public class GetElementXml extends Dom4jTest {
     public GetElementXml(String file) {
         super(file);
     }

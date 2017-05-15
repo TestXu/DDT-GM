@@ -11,7 +11,7 @@ import java.io.InputStream;
 import java.net.URL;
 
 
-public class Dom4j {
+public class Dom4jTest {
     private String file;
     public Document document;
     private InputStream input = null;
@@ -21,9 +21,9 @@ public class Dom4j {
      *
      * @param file 文件名
      */
-    public Dom4j(String file) {
+    public Dom4jTest(String file) {
         this.file = file;
-        ClassLoader classLoader = Dom4j.class.getClassLoader();
+        ClassLoader classLoader = Dom4jTest.class.getClassLoader();
         URL resource = classLoader.getResource(file);
         String path = resource.getPath();
         try {
