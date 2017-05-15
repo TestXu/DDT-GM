@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -19,19 +18,41 @@ public class MyWebdriver {
     private WebDriver driver;
     private String value = "";
     private boolean flag = true;
-    private WebDriverWait wait;
     private WebElement element;
 
     public MyWebdriver() {
 
     }
 
+    /**
+     * 传入一个driver对象
+     *
+     * @param driver
+     */
     public void setWebDriver(WebDriver driver) {
         this.driver = driver;
     }
 
+    /**
+     * 获取当前driver对象
+     *
+     * @return
+     */
     public WebDriver getWebDriver() {
         return this.driver;
+    }
+
+    /**
+     * 结束测试，关闭浏览器
+     */
+    public boolean endTest() {
+        try {
+            driver.quit();
+            return true;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
 
     /**
@@ -81,36 +102,37 @@ public class MyWebdriver {
      * @param by      传入一个类型
      * @param byValue 传入一个类型值
      */
-    public void findElementClick(String by, String byValue) {
+    public boolean findElementClick(String by, String byValue) {
         try {
             switch (by) {
                 case "id":
                     driver.findElement(By.id(byValue)).click();
-                    break;
+                    return true;
                 case "name":
                     driver.findElement(By.name(byValue)).click();
-                    break;
+                    return true;
                 case "class":
                     driver.findElement(By.className(byValue)).click();
-                    break;
+                    return true;
                 case "tag":
                     driver.findElement(By.tagName(byValue)).click();
                 case "link":
                     driver.findElement(By.linkText(byValue)).click();
-                    break;
+                    return true;
                 case "partiallinktext":
                     driver.findElement(By.partialLinkText(byValue)).click();
                 case "css":
                     driver.findElement(By.cssSelector(byValue)).click();
-                    break;
+                    return true;
                 case "xpath":
                     driver.findElement(By.xpath(byValue)).click();
-                    break;
+                    return true;
                 default:
                     throw new RuntimeException("输入的定位类型未在程序中定义，类型为：" + byValue);
             }
         } catch (Exception e) {
-            System.out.println("*****没有找到元素为:" + byValue + "    的元素或者该元素无法点击****");
+            System.out.println("*****没有找到元素,类型为：:"+by+"属性值为："+ byValue + "  的元素或者该元素无法点击****");
+            return false;
         }
     }
 
@@ -120,36 +142,39 @@ public class MyWebdriver {
      * @param by      传入一个类型
      * @param byValue 传入一个类型值
      */
-    public void findElementClear(String by, String byValue) {
+    public boolean findElementClear(String by, String byValue) {
         try {
             switch (by) {
                 case "id":
                     driver.findElement(By.id(byValue)).clear();
-                    break;
+                    return true;
                 case "name":
                     driver.findElement(By.name(byValue)).clear();
-                    break;
+                    return true;
                 case "class":
                     driver.findElement(By.className(byValue)).clear();
-                    break;
+                    return true;
                 case "tag":
                     driver.findElement(By.tagName(byValue)).clear();
+                    return true;
                 case "link":
                     driver.findElement(By.linkText(byValue)).clear();
-                    break;
+                    return true;
                 case "partiallinktext":
                     driver.findElement(By.partialLinkText(byValue)).clear();
+                    return true;
                 case "css":
                     driver.findElement(By.cssSelector(byValue)).clear();
-                    break;
+                    return true;
                 case "xpath":
                     driver.findElement(By.xpath(byValue)).clear();
-                    break;
+                    return true;
                 default:
                     throw new RuntimeException("输入的定位类型未在程序中定义，类型为：" + byValue);
             }
         } catch (Exception e) {
-            System.out.println("*****没有找到元素为:" + byValue + "    的元素或者该元素没有输入值****");
+            System.out.println("*****没有找到元素,类型为：:"+by+"属性值为："+ byValue + "  的元素或者该元素没有输入值****");
+            return false;
         }
     }
 
@@ -160,36 +185,38 @@ public class MyWebdriver {
      * @param byValue 传入一个类型值
      * @param key     填写要输入的值
      */
-    public void findElementSendKeys(String by, String byValue, String key) {
+    public boolean findElementSendKeys(String by, String byValue, String key) {
         try {
             switch (by) {
                 case "id":
                     driver.findElement(By.id(byValue)).sendKeys(key);
-                    break;
+                    return true;
                 case "name":
                     driver.findElement(By.name(byValue)).sendKeys(key);
-                    break;
+                    return true;
                 case "class":
                     driver.findElement(By.className(byValue)).sendKeys(key);
-                    break;
+                    return true;
                 case "tag":
                     driver.findElement(By.tagName(byValue)).sendKeys(key);
+                    return true;
                 case "link":
                     driver.findElement(By.linkText(byValue)).sendKeys(key);
-                    break;
+                    return true;
                 case "partiallinktext":
                     driver.findElement(By.partialLinkText(byValue)).sendKeys(key);
                 case "css":
                     driver.findElement(By.cssSelector(byValue)).sendKeys(key);
-                    break;
+                    return true;
                 case "xpath":
                     driver.findElement(By.xpath(byValue)).sendKeys(key);
-                    break;
+                    return true;
                 default:
                     throw new RuntimeException("输入的定位类型未在程序中定义，类型为：" + byValue);
             }
         } catch (Exception e) {
-            System.out.println("*****没有找到元素为:" + byValue + "    的元素或者该元素无法输入****");
+            System.out.println("*****没有找到元素,类型为：:"+by+"属性值为："+ byValue + "    的元素或者该元素无法输入****");
+            return false;
         }
     }
 
@@ -581,6 +608,20 @@ public class MyWebdriver {
     }
 
     /**
+     * 获取网页的url值
+     *
+     * @return
+     */
+    public String getCurrentUrl() {
+        if (flag) {
+            return driver.getCurrentUrl();
+        } else {
+            System.out.println("flag is false, function is not excuted");
+            return null;
+        }
+    }
+
+    /**
      * 切换到frame框
      *
      * @param frameName
@@ -838,19 +879,6 @@ public class MyWebdriver {
     public boolean setTimeOut(int second) {
         try {
             driver.manage().timeouts().implicitlyWait(second, TimeUnit.SECONDS);
-            return true;
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return false;
-        }
-    }
-
-    /**
-     * 结束测试，关闭浏览器
-     */
-    public boolean endTest() {
-        try {
-            driver.quit();
             return true;
         } catch (Exception e) {
             System.out.println(e.getMessage());

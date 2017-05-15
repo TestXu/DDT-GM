@@ -1,6 +1,7 @@
 package com.tsixi.ddt2.test.pages.pageselement;
 
 import com.tsixi.ddt2.test.utils.GetElementXml;
+import org.testng.annotations.Test;
 
 import java.util.Map;
 
@@ -16,6 +17,8 @@ public final class RewardPage {
 
     public final static String[] TEST_SERVER = rewardPageEles.get("test_server");//五服测试服
 
+    public final static String[] ROLE_INPUT = rewardPageEles.get("role_input");//角色输入框
+
     public final static String[] ROLE_BUTTONN = rewardPageEles.get("role_buttonn");//角色下拉框
 
     public final static String[] AROLE = rewardPageEles.get("arole");//在线角色选项
@@ -28,7 +31,7 @@ public final class RewardPage {
 
     public final static String[] ADDITEMS = rewardPageEles.get("additems");//添加物品按钮
 
-    public final static String[] PROP_INPUT = rewardPageEles.get("prop");//道具搜索框
+    public final static String[] PROP_INPUT = rewardPageEles.get("prop_input");//道具搜索框
 
     public final static String[] FIRST_PROP = rewardPageEles.get("first_prop");//第一条道具选项
 
@@ -39,7 +42,6 @@ public final class RewardPage {
     public final static String[] PERFORM = rewardPageEles.get("perform");//执行操作按钮
 
     public final static String[] ACCEPT_PERFORM = rewardPageEles.get("accept_perform");//确定执行按钮
-
 
 }
 

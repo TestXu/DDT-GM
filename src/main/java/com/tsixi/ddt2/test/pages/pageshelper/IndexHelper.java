@@ -17,12 +17,20 @@ public class IndexHelper {
     public IndexHelper(WebDriver driver) {
         this.driver = driver;
         dr = new MyWebdriver();
+        dr.setWebDriver(driver);
+        dr.setTimeOut(15);
     }
 
     /**
      * 执行发奖
      */
-    public void getReaward() {
-        dr.findElementClick(IndexPage.REAWARD_BUTTON[0], IndexPage.REAWARD_BUTTON[1]);
+    public boolean getReaward() {
+        try {
+            dr.findElementClick(IndexPage.REAWARD_BUTTON[0], IndexPage.REAWARD_BUTTON[1]);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
     }
 }

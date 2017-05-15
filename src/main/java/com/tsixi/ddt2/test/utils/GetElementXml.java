@@ -15,7 +15,7 @@ public class GetElementXml extends Dom4j {
     private Map<String, String[]> eles;
 
     /**
-     * 提供一个从xml文件获取ele数组的方法
+     * 提供一个从xml文件获取element元素集合的方法
      *
      * @return Map集合 通过name获取数组values
      * 数组第一位为类型   第二位为类型值

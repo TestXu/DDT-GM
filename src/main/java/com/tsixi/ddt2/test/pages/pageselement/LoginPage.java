@@ -11,9 +11,6 @@ import java.util.Map;
  * @Date 2017/3/13 11:20
  */
 public final class LoginPage {
-    /**
-     * 获得当前页面元素值
-     */
     public final static Map<String, String[]> loginPageEles = new GetElementXml("elementdata/LoginEleData.xml").getele();
     public final static String[] NAME_INPUT = loginPageEles.get("name_input");//账号输入框
 

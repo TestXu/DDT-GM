@@ -15,14 +15,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  **/
 public class WaitUnits {
     private WebDriver driver;
-    private WebDriverWait wait;
+    private static WebDriverWait wait;
 
     public WaitUnits(WebDriver driver, int i) {
         this.driver = driver;
         wait = new WebDriverWait(driver, i);
     }
 
-    public WebElement waitClick(WebElement webElement) {
+    public static WebElement waitClick(WebElement webElement) {
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(webElement));
         return element;
     }

@@ -12,47 +12,43 @@ import org.openqa.selenium.WebDriver;
  */
 public class LoginHelper {
     private WebDriver driver;
-    //    private WaitUnits waitUnits = new WaitUnits(driver,20);
     private MyWebdriver dr;
-
+    /**
+     * 从外部获取的driver
+     * @param driver
+     */
     public LoginHelper(WebDriver driver) {
         this.driver = driver;
         dr = new MyWebdriver();
         dr.setWebDriver(driver);
-        dr.setTimeOut(10);
+        dr.setTimeOut(15);
     }
-
-    /**
-     * 打开登录页面
-     *
-     * @param url 登录页面url
-     */
-    public void openUrl(String url) {
-        driver.get(url);
-    }
-
     /**
      * 执行登录
      *
      * @param name 用户名
      * @param pwd  密码
      */
-    public void login(String name, String pwd) {
-        dr.findElementSendKeys(LoginPage.NAME_INPUT[0], LoginPage.NAME_INPUT[1], "");
-        dr.sleep(1000L);
-        dr.findElementClear(LoginPage.NAME_INPUT[0], LoginPage.NAME_INPUT[1]);
-        dr.findElementSendKeys(LoginPage.NAME_INPUT[0], LoginPage.NAME_INPUT[1], name);
-        dr.findElementSendKeys(LoginPage.PWD_INPUT[0], LoginPage.PWD_INPUT[1], "");
-        dr.findElementClear(LoginPage.PWD_INPUT[0], LoginPage.PWD_INPUT[1]);
-        dr.findElementSendKeys(LoginPage.PWD_INPUT[0], LoginPage.PWD_INPUT[1], pwd);
-        dr.findElementClick(LoginPage.SERVER[0], LoginPage.SERVER[1]);
-        dr.sleep(1000L);
-        dr.findElementClick(LoginPage.TEST_SERVER[0], LoginPage.TEST_SERVER[1]);
-        dr.findElementClick(LoginPage.LANGUAGE_BUTTON[0], LoginPage.LANGUAGE_BUTTON[1]);
-        dr.sleep(1000L);
-        dr.findElementClick(LoginPage.CHINAESE[0], LoginPage.CHINAESE[1]);
-        dr.findElementClick(LoginPage.LOGIN_BUTTON[0], LoginPage.LOGIN_BUTTON[1]);
+    public boolean login(String name, String pwd) {
+        try {
+            dr.findElementSendKeys(LoginPage.NAME_INPUT[0], LoginPage.NAME_INPUT[1], "");
+            dr.sleep(1000L);
+            dr.findElementClear(LoginPage.NAME_INPUT[0], LoginPage.NAME_INPUT[1]);
+            dr.findElementSendKeys(LoginPage.NAME_INPUT[0], LoginPage.NAME_INPUT[1], name);
+            dr.findElementSendKeys(LoginPage.PWD_INPUT[0], LoginPage.PWD_INPUT[1], "");
+            dr.findElementClear(LoginPage.PWD_INPUT[0], LoginPage.PWD_INPUT[1]);
+            dr.findElementSendKeys(LoginPage.PWD_INPUT[0], LoginPage.PWD_INPUT[1], pwd);
+            dr.findElementClick(LoginPage.SERVER[0], LoginPage.SERVER[1]);
+            dr.sleep(1000L);
+            dr.findElementClick(LoginPage.TEST_SERVER[0], LoginPage.TEST_SERVER[1]);
+            dr.findElementClick(LoginPage.LANGUAGE_BUTTON[0], LoginPage.LANGUAGE_BUTTON[1]);
+            dr.sleep(1000L);
+            dr.findElementClick(LoginPage.CHINAESE[0], LoginPage.CHINAESE[1]);
+            dr.findElementClick(LoginPage.LOGIN_BUTTON[0], LoginPage.LOGIN_BUTTON[1]);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
     }
-
-
 }

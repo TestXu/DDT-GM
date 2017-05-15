@@ -8,5 +8,5 @@
     <!--游戏下拉框-->
     <property name="game_button" type="id" value="b030100-btnInnerEl"/>
     <!--奖励发放按钮-->
-    <property name="reaward_button" type="id" value="treeview-1015-record-5231"/>
+    <property name="reaward_button" type="xpath" value="//table[contains(@id,'treeview-1015-record-')][3]"/>
 </IndexEleData>
