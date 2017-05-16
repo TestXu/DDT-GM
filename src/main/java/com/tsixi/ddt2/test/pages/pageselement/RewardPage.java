@@ -1,7 +1,7 @@
 package com.tsixi.ddt2.test.pages.pageselement;
 
-import com.tsixi.ddt2.test.utils.GetElementXml;
-import org.testng.annotations.Test;
+import com.tsixi.ddt2.test.base.ExcelData;
+import com.tsixi.ddt2.test.utils.XMLHelp;
 
 import java.util.Map;
 
@@ -12,10 +12,10 @@ import java.util.Map;
  * @Date 2017/3/13 16:23
  */
 public final class RewardPage {
-    public final static Map<String, String[]> rewardPageEles = new GetElementXml("elementdata/RewardEleData.xml").getele();
+    public final static Map<String, String[]> rewardPageEles = new XMLHelp("elementdata/RewardEleData.xml").getele();
     public final static String[] ZONE_BUTTON = rewardPageEles.get("zone_button");//赛区下拉框
 
-    public final static String[] TEST_SERVER = rewardPageEles.get("test_server");//五服测试服
+    public  static String[] TEST_SERVER = new String[2];//五服测试服
 
     public final static String[] ROLE_INPUT = rewardPageEles.get("role_input");//角色输入框
 
@@ -43,5 +43,20 @@ public final class RewardPage {
 
     public final static String[] ACCEPT_PERFORM = rewardPageEles.get("accept_perform");//确定执行按钮
 
+    public static String[] getTestServer() {
+        return TEST_SERVER;
+    }
+
+    public static void setTestServer(String[] testServer) {
+        TEST_SERVER = testServer;
+    }
+
+    public  void  ServerType(){
+        String[] test_servers = new String[2];
+        String test_server = rewardPageEles.get("test_server")[1]+ ExcelData.getInServerType()+"']";
+        test_servers[0]=rewardPageEles.get("test_server")[0];
+        test_servers[1] = test_server;
+        setTestServer(test_servers);
+    }
 }
 

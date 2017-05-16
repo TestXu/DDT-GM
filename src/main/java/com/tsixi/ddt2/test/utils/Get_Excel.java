@@ -33,6 +33,7 @@ public class Get_Excel extends Excel {
             String cel = cell.getStringCellValue().toString();
             ele.add(cel);
         }
+        close();
         return ele;
     }
 
@@ -46,7 +47,7 @@ public class Get_Excel extends Excel {
      * @return
      * @throws IOException
      */
-    public List<String> getWP() throws IOException {
+    public List<String> getWP()  {
         List<String> wp = new ArrayList();
         Sheet sheet = super.workbook.getSheetAt(0);
         Iterator<Row> rows = sheet.rowIterator();
@@ -55,6 +56,7 @@ public class Get_Excel extends Excel {
             String cell = row.getCell(0).toString();
             wp.add(cell);
         }
+        close();
         return wp;
     }
 
@@ -64,7 +66,7 @@ public class Get_Excel extends Excel {
      * @return
      * @throws IOException
      */
-    public List<String> getSL() throws IOException {
+    public List<String> getSL()  {
         List<String> sl = new ArrayList();
         Sheet sheet = super.workbook.getSheetAt(0);
         Iterator<Row> rows = sheet.rowIterator();
@@ -73,6 +75,7 @@ public class Get_Excel extends Excel {
             String cell = row.getCell(2).toString();
             sl.add(cell);
         }
+        close();
         return sl;
     }
 
@@ -81,15 +84,24 @@ public class Get_Excel extends Excel {
      *
      * @return
      */
-    public List<String> getYH() throws IOException {
-        List<String> yh = new ArrayList();
+    public String[] getYH()  {
+            String[] yh = new String[2];
+            Sheet sheet = super.workbook.getSheetAt(0);
+            Row row = sheet.getRow(1);
+            yh[0]= row.getCell(4).getStringCellValue();
+            yh[1]= row.getCell(5).getStringCellValue();
+            close();
+            return yh;
+    }
+    /**
+     * 获取IP
+     * @return
+     */
+    public String getIP(){
         Sheet sheet = super.workbook.getSheetAt(0);
         Row row = sheet.getRow(1);
-        String name = row.getCell(4).toString();
-        String pwd = row.getCell(5).toString();
-        yh.add(name);
-        yh.add(pwd);
-        return yh;
+        String ip = row.getCell(7).getStringCellValue();
+        close();
+        return ip;
     }
-
 }

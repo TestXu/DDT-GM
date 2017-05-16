@@ -801,9 +801,9 @@ public class MyWebdriver {
      *
      * @param pageUrl
      */
-    public boolean openPage(String pageUrl) {
+    public boolean openPage(String ip,String pageUrl) {
         try {
-            driver.get(pageUrl);
+            driver.get(ip+pageUrl);
             return true;
         } catch (Exception e) {
             System.out.println(e.getMessage());

@@ -1,5 +1,7 @@
 package com.tsixi.ddt2.test.pages.pageshelper;
 
+import com.tsixi.ddt2.test.base.ExcelData;
+import com.tsixi.ddt2.test.pages.pageselement.IndexPage;
 import com.tsixi.ddt2.test.pages.pageselement.LoginPage;
 import com.tsixi.ddt2.test.utils.MyWebdriver;
 import org.openqa.selenium.WebDriver;
@@ -13,6 +15,7 @@ import org.openqa.selenium.WebDriver;
 public class LoginHelper {
     private WebDriver driver;
     private MyWebdriver dr;
+    private String[] TEST_SERVER;
     /**
      * 从外部获取的driver
      * @param driver
@@ -22,6 +25,8 @@ public class LoginHelper {
         dr = new MyWebdriver();
         dr.setWebDriver(driver);
         dr.setTimeOut(15);
+        new LoginPage().ServerType();
+        TEST_SERVER = LoginPage.getTestServer();
     }
     /**
      * 执行登录
@@ -40,7 +45,7 @@ public class LoginHelper {
             dr.findElementSendKeys(LoginPage.PWD_INPUT[0], LoginPage.PWD_INPUT[1], pwd);
             dr.findElementClick(LoginPage.SERVER[0], LoginPage.SERVER[1]);
             dr.sleep(1000L);
-            dr.findElementClick(LoginPage.TEST_SERVER[0], LoginPage.TEST_SERVER[1]);
+            dr.findElementClick(TEST_SERVER[0], TEST_SERVER[1]);
             dr.findElementClick(LoginPage.LANGUAGE_BUTTON[0], LoginPage.LANGUAGE_BUTTON[1]);
             dr.sleep(1000L);
             dr.findElementClick(LoginPage.CHINAESE[0], LoginPage.CHINAESE[1]);

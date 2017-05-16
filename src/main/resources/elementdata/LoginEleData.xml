@@ -8,7 +8,7 @@
     <!--服务器选择下拉框-->
     <property name="server" type="id" value="combo-1011-trigger-picker"/>
     <!--内网测试GM2-->
-    <property name="test_server" type="css" value="ul#boundlist-1018-listEl > li[data-recordindex='0']"/>
+    <property name="test_server" type="xpath" value="//li[text() = '"/>
     <!--语言选择下拉框-->
     <property name="language_button" type="id" value="combo-1012-trigger-picker"/>
     <!--简体中文-->

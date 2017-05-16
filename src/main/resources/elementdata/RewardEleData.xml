@@ -4,7 +4,7 @@
     <!--赛区下拉框-->
     <property name="zone_button" type="xpath" value="//input[@name='areas']"/>
     <!--五服测试服-->
-    <property name="test_server" type="xpath" value="//li[text()='5 - test server']"/>
+    <property name="test_server" type="xpath" value="//li[text()='"/>
     <!--角色输入框-->
     <property name="role_input" type="xpath" value="//input[@name='uuid']"/>
     <!--角色下拉框-->
@@ -24,7 +24,7 @@
     <!--第一条道具选项-->
     <property name="first_prop" type="xpath" value="//table[starts-with(@id, 'gridview-')][1]"/>
     <!--物品数量-->
-    <property name="prop_num" type="xpath" value="//input[starts-with(@id,'numberfield-')]"/>
+    <property name="prop_num" type="xpath" value="//div[contains(@id,numberfield-11) and @style='width: 100px; right: auto; left: 638px; top: 22px; margin: 0px;' ]/div/div/div/input"/>
     <!--确定按钮-->
     <property name="accept" type="xpath" value="//span[starts-with(@id,'button-')  and text()='确定']"/>
     <!--执行操作按钮-->

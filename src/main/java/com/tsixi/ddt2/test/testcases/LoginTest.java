@@ -3,6 +3,7 @@ package com.tsixi.ddt2.test.testcases;
 import com.tsixi.ddt2.test.pages.pageshelper.LoginHelper;
 import com.tsixi.ddt2.test.utils.Assertion;
 import com.tsixi.ddt2.test.utils.Browser;
+import com.tsixi.ddt2.test.utils.ConfigData;
 import com.tsixi.ddt2.test.utils.MyWebdriver;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -22,7 +23,7 @@ public class LoginTest {
     private LoginHelper loginHelper;
     @BeforeClass
     public void setUp() {
-        driver = Browser.openBrowser("chrome");
+        driver = Browser.openBrowser(ConfigData.BROWSER);
         dr = new MyWebdriver();
         dr.setWebDriver(driver);
         loginHelper = new LoginHelper(driver);
@@ -41,7 +42,7 @@ public class LoginTest {
      */
     @Test
     public void loginTest1() {
-        dr.openPage("http://192.168.2.200:8080/GM/");
+        dr.openPage(ConfigData.getIP(),"/GM");
         System.out.println("----GM工具登录----");
         loginHelper.login("taoxu", "123");
         dr.sleep(1000L);
@@ -54,7 +55,7 @@ public class LoginTest {
      */
     @Test
     public void loginTest2(){
-        dr.openPage("http://192.168.2.200:8080/GM/");
+        dr.openPage(ConfigData.getIP(),"/GM");
         System.out.println("----GM工具登录----");
         loginHelper.login("asda", "12asd3");
         dr.sleep(1000L);

@@ -1,6 +1,6 @@
 package com.tsixi.ddt2.test.pages.pageselement;
 
-import com.tsixi.ddt2.test.utils.GetElementXml;
+import com.tsixi.ddt2.test.utils.XMLHelp;
 
 import java.util.Map;
 
@@ -12,7 +12,7 @@ import java.util.Map;
  * @Date 2017/3/13 15:03
  */
 public final class IndexPage {
-    public final static Map<String, String[]> indexPageEles = new GetElementXml("elementdata/IndexEleData.xml").getele();
+    public final static Map<String, String[]> indexPageEles = new XMLHelp("elementdata/IndexEleData.xml").getele();
 
     public final static String[] INDEX_BUTTON = indexPageEles.get("index_button");//导航下拉框
 

@@ -13,6 +13,7 @@ import org.openqa.selenium.WebDriver;
 public class RewardHelper extends IndexHelper {
     private WebDriver driver;
     private MyWebdriver dr;
+    private String[] TEST_SERVER;
 
     public RewardHelper(WebDriver driver) {
         super(driver);
@@ -20,25 +21,27 @@ public class RewardHelper extends IndexHelper {
         dr = new MyWebdriver();
         dr.setWebDriver(driver);
         dr.setTimeOut(15);
+        new RewardPage().ServerType();
+        TEST_SERVER = RewardPage.getTestServer();
     }
 
     /**
      * 发奖填写信息
      *
-     * @param role         角色ID
+     * @param roleId         角色ID
      * @param instructions 详细说明信息
      */
-    public boolean addMessage(String role, String instructions) {
+    public boolean addMessage(String roleId, String instructions) {
         try {
             dr.findElementClick(RewardPage.ZONE_BUTTON[0], RewardPage.ZONE_BUTTON[1]);
             dr.sleep(1000L);
-            dr.findElementClick(RewardPage.TEST_SERVER[0], RewardPage.TEST_SERVER[1]);
-            if (role == null) {
+            dr.findElementClick(TEST_SERVER[0], TEST_SERVER[1]);
+            if (roleId.equals("无")) {
                 dr.findElementClick(RewardPage.ROLE_BUTTONN[0], RewardPage.ROLE_BUTTONN[1]);
                 dr.sleep(1000L);
                 dr.findElementClick(RewardPage.AROLE[0], RewardPage.AROLE[1]);
             } else {
-                dr.findElementSendKeys(RewardPage.ROLE_INPUT[0],RewardPage.ROLE_INPUT[1],role);
+                dr.findElementSendKeys(RewardPage.ROLE_INPUT[0],RewardPage.ROLE_INPUT[1],roleId);
             }
             dr.findElementClick(RewardPage.REASON_BUTTON[0], RewardPage.REASON_BUTTON[1]);
             dr.findElementClick(RewardPage.REASON_WEI[0], RewardPage.REASON_WEI[1]);
@@ -63,11 +66,15 @@ public class RewardHelper extends IndexHelper {
             dr.findElementClick(RewardPage.ADDITEMS[0],RewardPage.ADDITEMS[1]);
             dr.sleep(2000L);
             dr.findElementClick(RewardPage.PROP_INPUT[0],RewardPage.PROP_INPUT[1]);
+            dr.findElementSendKeys(RewardPage.PROP_INPUT[0],RewardPage.PROP_INPUT[1],"");
+            dr.findElementClear(RewardPage.PROP_INPUT[0],RewardPage.PROP_INPUT[1]);
             dr.findElementSendKeys(RewardPage.PROP_INPUT[0],RewardPage.PROP_INPUT[1],prop_id);
             dr.sleep(1000L);
             dr.findElementClick(RewardPage.FIRST_PROP[0],RewardPage.FIRST_PROP[1]);
             dr.sleep(1000L);
             dr.findElementClick(RewardPage.PROP_NUM[0],RewardPage.PROP_NUM[1]);
+            dr.findElementSendKeys(RewardPage.PROP_NUM[0],RewardPage.PROP_NUM[1],"");
+            dr.findElementClear(RewardPage.PROP_NUM[0],RewardPage.PROP_NUM[1]);
             dr.findElementSendKeys(RewardPage.PROP_NUM[0],RewardPage.PROP_NUM[1],prop_num);
             dr.findElementClick(RewardPage.ACCEPT[0],RewardPage.ACCEPT[1]);
             dr.sleep(2000L);

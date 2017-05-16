@@ -7,13 +7,10 @@ import java.util.Iterator;
 import java.util.Map;
 
 
-public class GetElementXml extends Dom4jTest {
-    public GetElementXml(String file) {
+public class XMLHelp extends Dom4jTest {
+    public XMLHelp(String file) {
         super(file);
     }
-
-    private Map<String, String[]> eles;
-
     /**
      * 提供一个从xml文件获取element元素集合的方法
      *
@@ -22,6 +19,7 @@ public class GetElementXml extends Dom4jTest {
      */
     private Map<String, String[]> setele() {
         Iterator<Element> elements;
+        Map<String, String[]> eles;
         Element property = null;
         eles = new HashMap<String, String[]>();
         //获取根节点元素对象
@@ -47,5 +45,29 @@ public class GetElementXml extends Dom4jTest {
      */
     public Map<String, String[]> getele() {
         return this.setele();
+    }
+
+    /**
+     * 获取配置文件数据
+     * @return
+     */
+    private Map<String,String> setConfigData(){
+        Iterator<Element> propertys;
+        Map configDatas;
+        Element property = null;
+        configDatas = new HashMap<String,String>();
+        //获取根节点元素对象
+        Element node = super.document.getRootElement();
+        //获得一个element列表迭代器
+        propertys = node.elements("property").iterator();
+        while (propertys.hasNext()) {
+            property = propertys.next();
+            configDatas.put(property.attributeValue("name"), property.attributeValue("value"));
+        }
+        close();
+        return configDatas;
+    }
+    public Map<String,String> getConfigData(){
+        return this.setConfigData();
     }
 }

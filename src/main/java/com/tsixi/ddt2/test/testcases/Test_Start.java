@@ -25,7 +25,7 @@ public class Test_Start {
     private List<String> wp = sj.getWP();//获取物品ID
     private List<String> sl = sj.getSL();//获取物品数量
     private String url = "http://192.168.2.200:8080/GM/";
-    private List<String> yh = sj.getYH();//获取用户数据
+//    private List<String> yh = sj.getYH();//获取用户数据
     private List<String> errors = new ArrayList<String>();
 
     public Test_Start() throws IOException {
@@ -59,9 +59,9 @@ public class Test_Start {
     public void login() throws IOException, InterruptedException {
         WebDriverWait wait = new WebDriverWait(dr, 20);
         WebElement name1 = wait.until(ExpectedConditions.elementToBeClickable(By.id(ele.get(1))));
-        name1.sendKeys(yh.get(0));//账号输入框
+//        name1.sendKeys(yh.get(0));//账号输入框
         WebElement name2 = wait.until(ExpectedConditions.elementToBeClickable(By.id(ele.get(2))));
-        name2.sendKeys(yh.get(1));//密码输入框
+//        name2.sendKeys(yh.get(1));//密码输入框
         Thread.sleep(1000);
         WebElement f1 = wait.until(ExpectedConditions.elementToBeClickable(By.id(ele.get(3))));
         f1.click();
