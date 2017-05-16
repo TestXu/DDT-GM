@@ -14,6 +14,10 @@ import java.util.List;
 /**
  * Created by Administrator on 2017/5/15.
  */
+
+/**
+ * 发放奖励流程测试
+ */
 public class RewardTest {
     private WebDriver driver;
     private MyWebdriver dr;
