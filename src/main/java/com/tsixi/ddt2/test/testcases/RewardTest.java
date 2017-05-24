@@ -30,6 +30,7 @@ public class RewardTest {
 
     @BeforeClass
     public void setup() {
+        System.out.println("****测试开始****");
         new ExcelGetAll("userdata/suju.xlsx").getAll();
         driver = Browser.openBrowser(ConfigData.BROWSER);
         driver.manage().window().maximize();
@@ -49,20 +50,19 @@ public class RewardTest {
             System.out.println(error);
         }
         dr.endTest();
+        System.out.println("关闭浏览器结束测试");
     }
 
     @Test
     public void rewardTest() {
         login.login();
-        System.out.println("登录测试通过");
         rewardHelper.getReaward();
-        System.out.println("GM主页面测试通过");
         rewardHelper.addMessage(roleId, instructions);
-        System.out.println("GM发放奖励填写信息通过");
         for (int i = 1; i < propIds.size(); i++) {
             rewardHelper.addProp(propIds.get(i), propNums.get(i));
         }
         System.out.println("GM添加物品信息通过");
         rewardHelper.perform();
+
     }
 }

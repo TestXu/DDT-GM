@@ -11,13 +11,14 @@ com\tsixi\ddt2\test\utils\Get_Excel.class
 com\tsixi\ddt2\test\utils\AssertionListener.class
 com\tsixi\ddt2\test\pages\pageshelper\RewardHelper.class
 com\tsixi\ddt2\test\utils\DefaultAdvancedHandle$1.class
+com\tsixi\ddt2\test\base\ExcelData.class
 com\tsixi\ddt2\test\utils\Browser.class
 com\tsixi\ddt2\test\pages\pageshelper\LoginHelper.class
 com\tsixi\ddt2\test\utils\Assertion.class
-com\tsixi\ddt2\test\testcases\Test_Start.class
 com\tsixi\ddt2\test\utils\ConfigData.class
 com\tsixi\ddt2\test\utils\Excel.class
 com\tsixi\ddt2\test\utils\MyWebdriver.class
+com\tsixi\ddt2\test\base\ExcelGetAll.class
 com\tsixi\ddt2\test\testcases\LoginTest.class
 com\tsixi\ddt2\test\utils\AdvanceHandle.class
 com\tsixi\ddt2\test\utils\Correct_Login.class

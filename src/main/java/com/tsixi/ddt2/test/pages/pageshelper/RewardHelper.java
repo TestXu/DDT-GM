@@ -48,6 +48,7 @@ public class RewardHelper extends IndexHelper {
             dr.findElement(RewardPage.INSTRUCTIONS[0], RewardPage.INSTRUCTIONS[1]).sendKeys("");
             dr.findElementClear(RewardPage.INSTRUCTIONS[0], RewardPage.INSTRUCTIONS[1]);
             dr.findElementSendKeys(RewardPage.INSTRUCTIONS[0], RewardPage.INSTRUCTIONS[1], instructions);
+            System.out.println("GM发放奖励填写信息通过");
             return true;
         }catch (Exception e){
             e.printStackTrace();
@@ -92,7 +93,9 @@ public class RewardHelper extends IndexHelper {
         try {
             dr.findElementClick(RewardPage.PERFORM[0],RewardPage.PERFORM[1]);
             dr.sleep(1500L);
-       //     dr.findElementClick(RewardPage.ACCEPT_PERFORM[0],RewardPage.ACCEPT_PERFORM[1]);
+            dr.findElementClick(RewardPage.ACCEPT_PERFORM[0],RewardPage.ACCEPT_PERFORM[1]);
+            dr.sleep(3000L);
+            System.out.println("发放奖励成功");
             return true;
         }catch (Exception e){
             e.printStackTrace();

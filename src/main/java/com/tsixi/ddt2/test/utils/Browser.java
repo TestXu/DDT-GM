@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 /**
  * Created by Administrator on 2017/5/15.
@@ -11,9 +12,9 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 public class Browser {
     private static WebDriver driver;
     /**
-     * 打开游览器
+     * 打开浏览器
      *
-     * @param browser 游览器名
+     * @param browser 浏览器名
      */
     public static WebDriver openBrowser(String browser) {
         try {

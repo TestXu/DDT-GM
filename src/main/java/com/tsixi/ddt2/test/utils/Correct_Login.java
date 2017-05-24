@@ -41,6 +41,7 @@ public class Correct_Login {
             System.out.println("----GM工具登录----");
             loginHelper.login(yh[0], yh[1]);
             dr.sleep(2000L);
+            System.out.println("登录测试通过");
             return true;
         } catch (Exception e) {
             System.out.println(e.getMessage());

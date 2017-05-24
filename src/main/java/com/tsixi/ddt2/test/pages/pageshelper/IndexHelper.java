@@ -27,6 +27,7 @@ public class IndexHelper {
     public boolean getReaward() {
         try {
             dr.findElementClick(IndexPage.REAWARD_BUTTON[0], IndexPage.REAWARD_BUTTON[1]);
+            System.out.println("GM主页面测试通过");
             return true;
         }catch (Exception e){
             e.printStackTrace();
